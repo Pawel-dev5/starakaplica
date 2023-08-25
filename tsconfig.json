@@ -1,5 +1,15 @@
 {
+	"ts-node": {
+		// Do not forget to `npm i -D tsconfig-paths`
+		"require": ["tsconfig-paths/register"]
+	},
 	"compilerOptions": {
+		"baseUrl": "src/",
+		"paths": {
+			"@shared/*": ["shared/*"],
+			"@client/*": ["client/*"],
+			"@server/*": ["server/*"]
+		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
@@ -9,7 +19,7 @@
 		"esModuleInterop": true,
 		"module": "esnext",
 		"resolveJsonModule": true,
-		"moduleResolution": "bundler",
+		"moduleResolution": "node",
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
@@ -17,10 +27,7 @@
 			{
 				"name": "next"
 			}
-		],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
+		]
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]

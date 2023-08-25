@@ -1,6 +1,6 @@
 {
 	"extends": ["airbnb", "prettier"],
-	"plugins": ["prettier", "react", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
+	"plugins": ["prettier", "react", "@next/eslint-plugin-next", "prettier"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"project": "./jsconfig.json"

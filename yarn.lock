@@ -70,7 +70,7 @@
   "resolved" "https://registry.npmjs.org/@next/env/-/env-13.4.19.tgz"
   "version" "13.4.19"
 
-"@next/eslint-plugin-next@13.4.19":
+"@next/eslint-plugin-next@^13.4.19", "@next/eslint-plugin-next@13.4.19":
   "integrity" "sha512-N/O+zGb6wZQdwu6atMZHbR7T9Np5SUFUjZqCbj0sXm+MwQO35M8TazVB4otm87GkXYs2l6OPwARd3/PUWhZBVQ=="
   "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-13.4.19.tgz"
   "version" "13.4.19"
@@ -752,7 +752,7 @@
     "semver" "^6.3.1"
     "tsconfig-paths" "^3.14.2"
 
-"eslint-plugin-jsx-a11y@^6.5.1":
+"eslint-plugin-jsx-a11y@^6.5.1", "eslint-plugin-jsx-a11y@^6.7.1":
   "integrity" "sha512-63Bog4iIethyo8smBklORknVjB0T2dwB8Mr/hIC+fBS0uyHdYYpzM/Ed+YC8VxTjlXHEWFOdmgwcDn1U2L9VCA=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.7.1.tgz"
   "version" "6.7.1"
