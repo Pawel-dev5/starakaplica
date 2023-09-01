@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // COMPONENTS
-import { StyledText, StyledWrapper } from '../../../components/StylesGeneral';
+import { StyledText, StyledWrapper } from '../../StylesGeneral';
 
 // STYLES
 import { StyledPostPreviewWrapper, StyledCoverImg } from './Styles';

@@ -2,22 +2,20 @@ import dynamic from 'next/dynamic';
 
 // API
 import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
+import { Custom404 as Page } from '../components/custom404';
 
 // COMPONENTS
 const Layout = dynamic(() => import('../components/Layout/layout'));
-import { Custom404 as Page } from '../components/custom404';
 
-const Custom404 = ({ menuItems: { menuItems }, subMenuItems, footerItems }) => {
-	return (
-		<Layout
-			menuItems={menuItems?.edges}
-			subMenuItems={subMenuItems?.menuItems?.edges}
-			footerItems={footerItems?.menuItems?.edges}
-		>
-			<Page />
-		</Layout>
-	);
-};
+const Custom404 = ({ menuItems: { menuItems }, subMenuItems, footerItems }) => (
+	<Layout
+		menuItems={menuItems?.edges}
+		subMenuItems={subMenuItems?.menuItems?.edges}
+		footerItems={footerItems?.menuItems?.edges}
+	>
+		<Page />
+	</Layout>
+);
 
 export default Custom404;
 

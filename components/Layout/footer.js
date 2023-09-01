@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 
@@ -8,12 +7,12 @@ import { Container } from '../elements';
 import { KontaktItems } from '../items';
 
 // STYLES
-import { StyledFooterWrapper, StyledFooter, StyledSubFooter, StyledIframe, StyledImageWrapper } from './Styles';
+import { StyledFooterWrapper, StyledFooter, StyledSubFooter, StyledIframe } from './Styles';
 import { StyledText } from '../StylesGeneral';
 
 const Footer = ({ footerItems, subMenuItems }) => {
 	const currentDate = new Date();
-	let year = currentDate.getFullYear();
+	const year = currentDate.getFullYear();
 
 	return (
 		<Container>
@@ -36,6 +35,7 @@ const Footer = ({ footerItems, subMenuItems }) => {
 					</StyledText>
 
 					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref>
+						{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 						<a alt="Facebook" aria-label="Facebook">
 							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
 						</a>

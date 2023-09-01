@@ -37,20 +37,18 @@ const HeroPost = ({ sliderOffer, excerpt, offerMenu }) => {
 							itemClass="image-item"
 							responsive={responsive}
 							ssr
-							infinite={true}
+							infinite
 							showDots={false}
 							arrows={false}
-							swipeable={true}
-							autoPlay={true}
+							swipeable
+							autoPlay
 							autoPlaySpeed={10000}
 							customTransition="all .5"
 							transitionDuration={1000}
 						>
 							{sliderGallery?.map((image) => {
 								if (!image?.sourceUrl) return null;
-								return (
-									<Image key={tokenMaker(5)} src={image?.sourceUrl} alt={image?.altText} layout="fill" />
-								);
+								return <Image key={tokenMaker(5)} src={image?.sourceUrl} alt={image?.altText} layout="fill" />;
 							})}
 						</Carousel>
 					</StyledSliderWrapper>
@@ -63,13 +61,7 @@ const HeroPost = ({ sliderOffer, excerpt, offerMenu }) => {
 				{menuGallery && (
 					<StylesMenuWrapper>
 						{menuGallery?.map((item) => (
-							<Image
-								key={tokenMaker(5)}
-								width="256px"
-								height="331px"
-								alt={item?.altText}
-								src={item?.sourceUrl}
-							/>
+							<Image key={tokenMaker(5)} width="256px" height="331px" alt={item?.altText} src={item?.sourceUrl} />
 						))}
 					</StylesMenuWrapper>
 				)}

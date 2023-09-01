@@ -15,7 +15,7 @@ const Home = ({ menuItems: { menuItems }, subMenuItems, footerItems, homePage })
 		footerItems={footerItems?.menuItems?.edges}
 		seo={homePage?.node?.seo}
 	>
-		<HomePage mainData={homePage?.node} />
+		{/* <HomePage mainData={homePage?.node} /> */}
 	</Layout>
 );
 

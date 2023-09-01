@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useRef } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
@@ -127,13 +127,7 @@ const Contact = ({ userId, serviceId, tamplateId, adres, telefon, sprawdzTez }) 
 			<StyledOtherResWrapper>
 				<Link href="http://podwawelem.net/" target="_blank" passHref rel="noreferrer">
 					<a alt="Stara Kaplica Restauracja" target="_blank" rel="noreferrer">
-						<Image
-							alt={sprawdzTez?.altText}
-							src={sprawdzTez?.sourceUrl}
-							layout="responsive"
-							width={1200}
-							height={400}
-						/>
+						<Image alt={sprawdzTez?.altText} src={sprawdzTez?.sourceUrl} layout="responsive" width={1200} height={400} />
 					</a>
 				</Link>
 			</StyledOtherResWrapper>

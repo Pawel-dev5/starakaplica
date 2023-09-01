@@ -12,7 +12,7 @@ const HomePage = ({ mainData }) => (
 	<>
 		{mainData && (
 			<>
-				{/* <FirstSection
+				<FirstSection
 					data={mainData?.galeriaglownastronaglowna}
 					naglowek={mainData?.glownaNaglowek?.glownaNaglowek}
 					naglowek2={mainData?.glownaNaglowek?.glownaNaglowek2}
@@ -26,7 +26,7 @@ const HomePage = ({ mainData }) => (
 
 				<Features features={mainData?.features?.features} heading={mainData?.features?.featuresHeading} />
 
-				<Video src={mainData?.glownaWideo?.wideo} /> */}
+				<Video src={mainData?.glownaWideo?.wideo} />
 			</>
 		)}
 	</>

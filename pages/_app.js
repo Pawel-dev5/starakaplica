@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 // STYLES
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import theme from '../theme/themeDefault';
