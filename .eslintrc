@@ -35,12 +35,12 @@
 				"namedComponents": "arrow-function"
 			}
 		], // This rule is aimed to enforce consistent function types for function components.
-		"prettier/prettier": [
-			2,
-			{
-				"endOfLine": "auto"
-			}
-		],
+		// "prettier/prettier": [
+		// 	2,
+		// 	{
+		// 		"endOfLine": "auto"
+		// 	}
+		// ],
 		"react/no-unstable-nested-components": [
 			2,
 			{

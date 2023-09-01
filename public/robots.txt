@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.restauracja-nadzalewem.pl/
+Host: https://stara-kaplica.pl/
 
 # Sitemaps
-Sitemap: https://www.restauracja-nadzalewem.pl/sitemap.xml
-Sitemap: https://www.restauracja-nadzalewem.pl/server-sitemap-index.xml
+Sitemap: https://stara-kaplica.pl/sitemap.xml
+Sitemap: https://stara-kaplica.pl/server-sitemap-index.xml

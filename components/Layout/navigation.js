@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 // LOGO
-import logo from '../../public/logoDW.png';
+import logo from '../../public/logo.png';
 
 // FONTAWESOME
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,11 +40,7 @@ const Navigation = ({ menuItems, subMenuItems, hideSubMenu }) => {
 				<StyledSubMenuWrapper>
 					{subMenuItems && <SubMenu subMenuItems={subMenuItems} />}
 
-					<Link
-						href="https://www.facebook.com/starakaplicarestauracja"
-						passHref
-						target="_blank"
-					>
+					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref target="_blank">
 						<a aria-label="Facebook" alt="Facebook">
 							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
 						</a>
@@ -69,9 +65,7 @@ const Navigation = ({ menuItems, subMenuItems, hideSubMenu }) => {
 					<StyledNavMenuWrapper>
 						{menuItems?.map((item) => (
 							<Link href={item?.node?.path} passHref key={item?.node?.id}>
-								<StyledNavText active={router?.pathname === item?.node?.path ?? true}>
-									{item?.node?.label}
-								</StyledNavText>
+								<StyledNavText active={router?.pathname === item?.node?.path ?? true}>{item?.node?.label}</StyledNavText>
 							</Link>
 						))}
 					</StyledNavMenuWrapper>
@@ -103,23 +97,13 @@ const NavigationMobile = ({ menuItems, subMenuItems, children }) => {
 				)}
 
 				<StyledMobileButtonsWrapper>
-					<Link
-						href="https://www.facebook.com/starakaplicarestauracja"
-						passHref
-						target="_blank"
-					>
+					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref target="_blank">
 						<a alt="Facebook" aria-label="Facebook">
 							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
 						</a>
 					</Link>
 					<StyledBurgerWrapper asideMenu={asideMenu}>
-						<StyledButton
-							burger
-							type="button"
-							name="Close"
-							aria-label="Close"
-							onClick={() => setAsideMenu(!asideMenu)}
-						>
+						<StyledButton burger type="button" name="Close" aria-label="Close" onClick={() => setAsideMenu(!asideMenu)}>
 							<Burger />
 						</StyledButton>
 					</StyledBurgerWrapper>
@@ -132,10 +116,7 @@ const NavigationMobile = ({ menuItems, subMenuItems, children }) => {
 						<>
 							{menuItems?.map((item) => (
 								<Link href={item?.node?.path} passHref key={item?.node?.id}>
-									<StyledNavText
-										customPadding="0.5rem"
-										active={router?.pathname === item?.node?.path ?? true}
-									>
+									<StyledNavText customPadding="0.5rem" active={router?.pathname === item?.node?.path ?? true}>
 										{item?.node?.label}
 									</StyledNavText>
 								</Link>

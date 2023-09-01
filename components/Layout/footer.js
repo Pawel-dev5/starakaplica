@@ -30,24 +30,6 @@ const Footer = ({ footerItems, subMenuItems }) => {
 					/>
 				</StyledFooterWrapper>
 
-				<StyledFooterWrapper>
-					<StyledText h5 white paddingdesktop="0 2.6rem">
-						Informujemy, że nasza firma korzysta z&nbsp;subwencji finansowej, w ramach rządowego programu "Tarcza
-						Finansowa 2.0 Polskiego Funduszu&nbsp; Rozwoju dla Mikro, Małych i Średnich Firm", udzielonej przez
-						przez PFR SA.
-					</StyledText>
-
-					<StyledImageWrapper>
-						<Image
-							alt="PFR"
-							src="https://db.restauracja-nadzalewem.pl/wp-content/uploads/2022/03/277112027_339491871473215_3428012668149106858_n.webp"
-							layout="fixed"
-							width={145}
-							height={60}
-						/>
-					</StyledImageWrapper>
-				</StyledFooterWrapper>
-
 				<StyledSubFooter>
 					<StyledText center h5 white>
 						© {year} Wszelkie prawa zastrzeżone. Restauracja Stara Kaplica. Made by Paweł Nowecki

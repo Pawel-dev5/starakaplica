@@ -23,7 +23,7 @@ const Blog = ({ allPosts: { edges }, menuItems: { menuItems }, subMenuItems, foo
 			subHeaderText={offerHeader?.oferta?.subheader}
 			seo={offerHeader?.seo}
 		>
-			<Container>{morePosts && <MoreStories posts={morePosts} />}</Container>
+			{/* <Container>{morePosts && <MoreStories posts={morePosts} />}</Container> */}
 		</Layout>
 	);
 };
@@ -32,11 +32,17 @@ export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	const allPosts = (await getAllPostsForHome()) ?? null;
-	const offerHeader = (await getOfferHeader()) ?? null;
+	// const allPosts = (await getAllPostsForHome()) ?? null;
+	// const offerHeader = (await getOfferHeader()) ?? null;
 
 	return {
-		props: { allPosts, menuItems, subMenuItems, footerItems, offerHeader },
+		props: {
+			// allPosts,
+			menuItems,
+			subMenuItems,
+			footerItems,
+			// offerHeader
+		},
 		revalidate: 300, // In seconds
 	};
 }

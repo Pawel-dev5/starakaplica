@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-hook-inview';
 
 // ASSETS
-import Image404 from '../../../assets/404.png';
+import Image404 from '../../../public/404.png';
 
 // STYLES
 import { StyledCustomWrapper, StyledImageWrapper, StyledTextWrapper, StyledHeader, StyledDesc, StyledLink } from './Styles';
@@ -41,7 +41,10 @@ const Custom404 = () => {
 						<a href="/oferta">Oferta</a>
 					</li>
 					<li>
-						<a href="/o-nas">O nas</a>
+						<a href="/przestrzen-historia">Przestrzen i historia</a>
+					</li>
+					<li>
+						<a href="/galeria">Galeria</a>
 					</li>
 					<li>
 						<a href="/kontakt">Kontakt</a>

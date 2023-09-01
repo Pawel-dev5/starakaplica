@@ -272,14 +272,9 @@ export const StyledWrapper = styled.div`
 
 export const StyledLogoWrapper = styled.div`
 	position: relative;
-	width: 9rem;
-	height: 6rem;
+	width: 4rem;
+	height: 4rem;
 	cursor: pointer;
-
-	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		width: 9rem;
-		height: 6rem;
-	}
 
 	${({ footer }) =>
 		footer &&

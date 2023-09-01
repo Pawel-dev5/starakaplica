@@ -19,9 +19,7 @@ const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, galleryPag
 		subHeaderText={galleryPage?.galeria?.galleryHeader}
 		seo={galleryPage?.seo}
 	>
-		<SRLWrapper>
-			<Gallery content={galleryPage?.content} />
-		</SRLWrapper>
+		<SRLWrapper>{/* <Gallery content={galleryPage?.content} /> */}</SRLWrapper>
 	</Layout>
 );
 
@@ -31,14 +29,14 @@ export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	const galleryPage = (await getGalleryPage()) ?? null;
+	// const galleryPage = (await getGalleryPage()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			subMenuItems,
 			footerItems,
-			galleryPage,
+			// galleryPage,
 		},
 		revalidate: 300, // In seconds
 	};

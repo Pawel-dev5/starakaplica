@@ -6,22 +6,20 @@ import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
 
 // COMPONENTS
 const Layout = dynamic(() => import('../components/Layout/layout'));
-const AboutUs = dynamic(() => import('../components/aboutUs'));
+const SpaceHistory = dynamic(() => import('../components/space-history'));
 
-const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, aboutUsData }) => {
-	return (
-		<Layout
-			menuItems={menuItems?.edges}
-			subMenuItems={subMenuItems?.menuItems?.edges}
-			footerItems={footerItems?.menuItems?.edges}
-			headerImg={aboutUsData?.featuredImage?.node}
-			headerText={aboutUsData?.title}
-			seo={aboutUsData?.seo}
-		>
-			<AboutUs aboutUsData={aboutUsData} />
-		</Layout>
-	);
-};
+const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, aboutUsData }) => (
+	<Layout
+		menuItems={menuItems?.edges}
+		subMenuItems={subMenuItems?.menuItems?.edges}
+		footerItems={footerItems?.menuItems?.edges}
+		headerImg={aboutUsData?.featuredImage?.node}
+		headerText={aboutUsData?.title}
+		seo={aboutUsData?.seo}
+	>
+		<SpaceHistory aboutUsData={aboutUsData} />
+	</Layout>
+);
 
 export default Index;
 

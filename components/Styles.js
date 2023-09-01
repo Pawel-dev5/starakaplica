@@ -125,7 +125,7 @@ export const StylesGalleryGrid = styled.div`
 	}
 `;
 
-export const StyledAboutWrapper = styled.div`
+export const StyledSpaceHistoryWrapper = styled.div`
 	width: 80%;
 	display: flex;
 	align-items: center;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Carousel from 'react-multi-carousel';
-import logo from '../../../public/logoDW.png';
+import logo from '../../../public/logo.png';
 
 // STYLES
 import { StyledText, StyledLogoWrapper } from '../../StylesGeneral';

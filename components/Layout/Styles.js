@@ -67,13 +67,13 @@ export const StyledNavWrapper = styled.nav`
 	${({ submenu }) =>
 		submenu &&
 		css`
-			height: 2.5rem;
+			height: 39%;
 			max-width: none;
 			background: ${({ theme }) => theme.black};
 
 			@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
 				padding: 6rem 0;
-				height: 100%;
+				height: 44%;
 				flex-direction: column;
 
 				> div {
@@ -106,6 +106,7 @@ export const StyledSubMenuWrapper = styled.div`
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) and (max-width: ${({ theme }) => theme.breakpoints.xl}) {
 		padding: 0 2rem;
+		height: 40px;
 	}
 `;
 
@@ -372,7 +373,9 @@ export const StyledBurgerWrapper = styled.div`
 	}
 
 	path {
-		transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
+		transition:
+			transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+			stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
 			stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	path:nth-child(1) {

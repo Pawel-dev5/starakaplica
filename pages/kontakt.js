@@ -17,14 +17,14 @@ const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, contactDat
 		headerImg={contactData?.featuredImage?.node}
 		seo={contactData?.seo}
 	>
-		<Contact
+		{/* <Contact
 			footerItems={footerItems?.menuItems?.edges}
 			subMenuItems={subMenuItems?.menuItems?.edges}
 			userId={formConfig?.userId}
 			serviceId={formConfig?.serviceId}
 			tamplateId={formConfig?.tamplateId}
 			{...contactData?.kontakt}
-		/>
+		/> */}
 	</Layout>
 );
 
@@ -32,16 +32,16 @@ export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	const contactData = (await getContacttHeader()) ?? null;
-	const formConfig = (await getConfig()) ?? null;
+	// const contactData = (await getContacttHeader()) ?? null;
+	// const formConfig = (await getConfig()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			subMenuItems,
 			footerItems,
-			contactData,
-			formConfig,
+			// contactData,
+			// formConfig,
 		},
 		revalidate: 300, // In seconds
 	};

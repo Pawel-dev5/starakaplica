@@ -2,14 +2,14 @@ import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
 // STYLES
-import { StyledAboutWrapper, StyledSectionWrapper, StyledListWrapper, StyledImageWrapper } from './Styles';
+import { StyledSpaceHistoryWrapper, StyledSectionWrapper, StyledListWrapper, StyledImageWrapper } from './Styles';
 import { StyledText } from './StylesGeneral';
 
-const AboutUs = ({ aboutUsData }) => (
+const SpaceHistory = ({ aboutUsData }) => (
 	<>
 		{aboutUsData && (
 			<SRLWrapper>
-				<StyledAboutWrapper>
+				<StyledSpaceHistoryWrapper>
 					<StyledText h1 black textAlign="center">
 						{aboutUsData?.oNas?.header1}
 					</StyledText>
@@ -60,10 +60,10 @@ const AboutUs = ({ aboutUsData }) => (
 					<StyledText h1 black textAlign="center">
 						{aboutUsData?.oNas?.header2}
 					</StyledText>
-				</StyledAboutWrapper>
+				</StyledSpaceHistoryWrapper>
 			</SRLWrapper>
 		)}
 	</>
 );
 
-export default AboutUs;
+export default SpaceHistory;

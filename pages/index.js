@@ -22,14 +22,14 @@ const Home = ({ menuItems: { menuItems }, subMenuItems, footerItems, homePage })
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const subMenuItems = (await getSubMenu()) ?? null;
-	// const footerItems = (await getFooter()) ?? null;
+	const footerItems = (await getFooter()) ?? null;
 	// const homePage = (await getHomePage()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			subMenuItems,
-			// footerItems,
+			footerItems,
 			// homePage,
 		},
 		revalidate: 300, // In seconds
