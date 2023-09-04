@@ -14,7 +14,6 @@ const Layout = ({
 	children,
 	slug,
 	menuItems,
-	subMenuItems,
 	footerItems,
 	headerImg,
 	headerText,
@@ -24,6 +23,8 @@ const Layout = ({
 	seo,
 }) => {
 	const [scrollDir, setScrollDir] = useState('START');
+	const [footerValues, setFooterValues] = useState([]);
+
 	const newSeo = {
 		...seo,
 		metatitle: seo?.metatitle ?? slug,
@@ -62,25 +63,24 @@ const Layout = ({
 		return () => window.removeEventListener('scroll', onScroll);
 	}, [scrollDir]);
 
+	useEffect(() => {
+		const newArr = [];
+		footerItems?.forEach((item) => {
+			newArr.push({ ...item?.node, type: item?.node?.path?.replace('https://', '') });
+		});
+		setFooterValues(newArr);
+	}, []);
+
 	return (
 		<>
 			<Seo {...newSeo} />
 
 			<StyledLayout>
-				{menuItems && subMenuItems && (
-					<Navigation
-						menuItems={menuItems}
-						subMenuItems={subMenuItems}
-						hideSubMenu={scrollDir === 'DOWN' ?? true}
-					/>
+				{menuItems && (
+					<Navigation menuItems={menuItems} footerItems={footerValues} hideSubMenu={scrollDir === 'DOWN' ?? true} />
 				)}
 
-				<Navigation.Mobile
-					menuItems={menuItems}
-					subMenuItems={subMenuItems}
-					setAsideMenu={setAsideMenu}
-					asideMenu={asideMenu}
-				>
+				<Navigation.Mobile menuItems={menuItems} setAsideMenu={setAsideMenu} asideMenu={asideMenu}>
 					{headerImg?.sourceUrl && <StyledLayoutHeader src={headerImg?.sourceUrl} />}
 
 					{(subHeaderText || headerText) && (
@@ -101,7 +101,7 @@ const Layout = ({
 					{children}
 				</Navigation.Mobile>
 
-				{footerItems && subMenuItems && <Footer footerItems={footerItems} subMenuItems={subMenuItems} />}
+				{footerValues && <Footer footerItems={footerValues} menuItems={menuItems} />}
 
 				<MessengerIcon />
 			</StyledLayout>

@@ -9,10 +9,9 @@ import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
 const Layout = dynamic(() => import('../components/Layout/layout'));
 const Gallery = dynamic(() => import('../components/gallery'));
 
-const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, galleryPage }) => (
+const Index = ({ menuItems: { menuItems }, footerItems, galleryPage }) => (
 	<Layout
 		menuItems={menuItems?.edges}
-		subMenuItems={subMenuItems?.menuItems?.edges}
 		footerItems={footerItems?.menuItems?.edges}
 		headerText={galleryPage?.title}
 		headerImg={galleryPage?.featuredImage?.node}
@@ -27,14 +26,12 @@ export default Index;
 
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
-	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
 	// const galleryPage = (await getGalleryPage()) ?? null;
 
 	return {
 		props: {
 			menuItems,
-			subMenuItems,
 			footerItems,
 			// galleryPage,
 		},

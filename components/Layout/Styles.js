@@ -103,6 +103,7 @@ export const StyledSubMenuWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin: auto;
+	height: 50px;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) and (max-width: ${({ theme }) => theme.breakpoints.xl}) {
 		padding: 0 2rem;
@@ -182,6 +183,14 @@ export const StyledIconWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	gap: 1rem;
+`;
+
+export const StyledSocialWrapper = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	flex-direction: column;
 	gap: 1rem;
 `;
 

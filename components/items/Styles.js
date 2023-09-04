@@ -4,7 +4,11 @@ export const StyledFooterAdres = styled.div`
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
+`;
+export const StyledSubMenuWrapper = styled.div`
+	display: flex;
 	align-items: flex-start;
+	gap: 1rem;
 `;
 
 export const StyledTelWrapper = styled.div`

@@ -15,7 +15,7 @@ const Layout = dynamic(() => import('../../components/Layout/layout'));
 const MoreStories = dynamic(() => import('../../components/Offer/MoreStories'));
 const HeroPost = dynamic(() => import('../../components/Offer/HeroPost'));
 
-const Post = ({ post, posts, menuItems: { menuItems }, subMenuItems, footerItems }) => {
+const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 	const router = useRouter();
 	const morePosts = posts?.edges;
 
@@ -36,7 +36,6 @@ const Post = ({ post, posts, menuItems: { menuItems }, subMenuItems, footerItems
 			headerImg={post?.featuredImage?.node}
 			slug={post?.slug}
 			menuItems={menuItems?.edges}
-			subMenuItems={subMenuItems?.menuItems?.edges}
 			footerItems={footerItems?.menuItems?.edges}
 			seo={newSeo}
 		>
@@ -65,15 +64,14 @@ export default Post;
 export async function getStaticProps({ params, preview = false, previewData }) {
 	// const data = await getPostAndMorePosts(params.slug, preview, previewData);
 	const menuItems = (await getPrimaryMenu()) ?? null;
-	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
+
 	return {
 		props: {
 			preview,
 			// post: data?.post,
 			// posts: data?.posts,
 			menuItems,
-			subMenuItems,
 			footerItems,
 		},
 		revalidate: 300, // In seconds

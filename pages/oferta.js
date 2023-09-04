@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 // API
-import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
+import { getPrimaryMenu, getFooter } from '../lib/nav';
 import { getAllPostsForHome } from '../lib/home';
 import { getOfferHeader } from '../lib/offer';
 
@@ -10,13 +10,12 @@ import { Container } from '../components/elements';
 const MoreStories = dynamic(() => import('../components/Offer/MoreStories'));
 const Layout = dynamic(() => import('../components/Layout/layout'));
 
-const Blog = ({ allPosts: { edges }, menuItems: { menuItems }, subMenuItems, footerItems, offerHeader }) => {
-	const morePosts = edges ?? [];
+const Blog = ({ allPosts, menuItems: { menuItems }, footerItems, offerHeader }) => {
+	const morePosts = allPosts?.edges ?? [];
 
 	return (
 		<Layout
 			menuItems={menuItems?.edges}
-			subMenuItems={subMenuItems?.menuItems?.edges}
 			footerItems={footerItems?.menuItems?.edges}
 			headerImg={offerHeader?.featuredImage?.node}
 			headerText={offerHeader?.title}
@@ -30,7 +29,6 @@ const Blog = ({ allPosts: { edges }, menuItems: { menuItems }, subMenuItems, foo
 
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
-	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
 	// const allPosts = (await getAllPostsForHome()) ?? null;
 	// const offerHeader = (await getOfferHeader()) ?? null;
@@ -39,7 +37,6 @@ export async function getStaticProps() {
 		props: {
 			// allPosts,
 			menuItems,
-			subMenuItems,
 			footerItems,
 			// offerHeader
 		},

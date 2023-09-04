@@ -11,18 +11,14 @@ const StyledIcon = styled(FontAwesomeIcon)`
 	margin-left: 0.5rem;
 `;
 
-const KontaktItems = ({ footerItems, subMenuItems, color }) => (
+const KontaktItems = ({ footerItems, color }) => (
 	<StyledContact color={color}>
-		{footerItems && subMenuItems && (
+		{footerItems && (
 			<>
 				<StyledFooterAdres>
 					<div>
 						<StyledIcon icon={faHome} className="fa-xl" />
-						<StyledText
-							footer={color === 'black' ?? true}
-							h4={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-						>
+						<StyledText footer={color === 'black' ?? true} h4={color === 'white' ?? true} h3={color === 'black' ?? true}>
 							Adres
 						</StyledText>
 					</div>
@@ -35,7 +31,7 @@ const KontaktItems = ({ footerItems, subMenuItems, color }) => (
 							footerAdres={color === 'black' ?? true}
 							textAlign="left"
 						>
-							{footerItems[0]?.node?.label}
+							{footerItems[0]?.label}
 						</StyledText>
 						<StyledText
 							footer={color === 'black' ?? true}
@@ -43,7 +39,7 @@ const KontaktItems = ({ footerItems, subMenuItems, color }) => (
 							h3={color === 'black' ?? true}
 							textAlign="left"
 						>
-							NIP: {footerItems[1]?.node?.label}
+							NIP: {footerItems[1]?.label}
 						</StyledText>
 					</StyledAdressWrapper>
 				</StyledFooterAdres>
@@ -52,33 +48,29 @@ const KontaktItems = ({ footerItems, subMenuItems, color }) => (
 					<div>
 						<StyledIcon icon={faPhone} className="fa-xl" />
 
-						<StyledText
-							footer={color === 'black' ?? true}
-							h4={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-						>
+						<StyledText footer={color === 'black' ?? true} h4={color === 'white' ?? true} h3={color === 'black' ?? true}>
 							Zadzwoń
 						</StyledText>
 					</div>
 
-					<StyledTelWrapper>
+					{/* <StyledTelWrapper>
 						{subMenuItems?.map((item) => (
 							<StyledSubMenu
-								href={`${item?.node?.path === 'http://email' ? 'mailto:' : 'tel:'}${item?.node?.label}`}
-								key={item?.node?.id}
+								href={`${item?.path === 'http://email' ? 'mailto:' : 'tel:'}${item?.label}`}
+								key={item?.id}
 								footer
 							>
 								<StyledText
 									h4={color === 'white' ?? true}
 									h3={color === 'black' ?? true}
 									black={color === 'black' ?? true}
-									key={item?.node?.id}
+									key={item?.id}
 								>
-									{item?.node?.label}
+									{item?.label}
 								</StyledText>
 							</StyledSubMenu>
 						))}
-					</StyledTelWrapper>
+					</StyledTelWrapper> */}
 				</StyledFooterAdres>
 			</>
 		)}
@@ -92,11 +84,7 @@ const ContactPageItems = ({ adres, telefon, color }) => (
 				<StyledFooterAdres>
 					<div>
 						<StyledIcon icon={faHome} className="fa-xl" />
-						<StyledText
-							footer={color === 'black' ?? true}
-							h5={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-						>
+						<StyledText footer={color === 'black' ?? true} h5={color === 'white' ?? true} h3={color === 'black' ?? true}>
 							{adres?.tytul}
 						</StyledText>
 					</div>
@@ -126,42 +114,26 @@ const ContactPageItems = ({ adres, telefon, color }) => (
 					<div>
 						<StyledIcon icon={faPhone} className="fa-xl" />
 
-						<StyledText
-							footer={color === 'black' ?? true}
-							h5={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-						>
+						<StyledText footer={color === 'black' ?? true} h5={color === 'white' ?? true} h3={color === 'black' ?? true}>
 							{telefon?.tytul}
 						</StyledText>
 					</div>
 
 					<StyledTelWrapper>
 						<StyledSubMenu footer href={`tel:${telefon?.telefon}`}>
-							<StyledText
-								h5={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								black={color === 'black' ?? true}
-							>
+							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
 								{telefon?.telefon}
 							</StyledText>
 						</StyledSubMenu>
 
 						<StyledSubMenu footer href={`tel:${telefon?.telefon2}`}>
-							<StyledText
-								h5={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								black={color === 'black' ?? true}
-							>
+							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
 								{telefon?.telefon2}
 							</StyledText>
 						</StyledSubMenu>
 
 						<StyledSubMenu footer href={`mailto:${telefon?.email}`}>
-							<StyledText
-								h5={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								black={color === 'black' ?? true}
-							>
+							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
 								{telefon?.email}
 							</StyledText>
 						</StyledSubMenu>

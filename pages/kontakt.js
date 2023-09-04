@@ -8,10 +8,9 @@ import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
 const Layout = dynamic(() => import('../components/Layout/layout'));
 const Contact = dynamic(() => import('../components/contact'));
 
-const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, contactData, formConfig }) => (
+const Index = ({ menuItems: { menuItems }, footerItems, contactData, formConfig }) => (
 	<Layout
 		menuItems={menuItems?.edges}
-		subMenuItems={subMenuItems?.menuItems?.edges}
 		footerItems={footerItems?.menuItems?.edges}
 		headerText={contactData?.title}
 		headerImg={contactData?.featuredImage?.node}
@@ -19,7 +18,6 @@ const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, contactDat
 	>
 		{/* <Contact
 			footerItems={footerItems?.menuItems?.edges}
-			subMenuItems={subMenuItems?.menuItems?.edges}
 			userId={formConfig?.userId}
 			serviceId={formConfig?.serviceId}
 			tamplateId={formConfig?.tamplateId}
@@ -30,7 +28,6 @@ const Index = ({ menuItems: { menuItems }, subMenuItems, footerItems, contactDat
 
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
-	const subMenuItems = (await getSubMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
 	// const contactData = (await getContacttHeader()) ?? null;
 	// const formConfig = (await getConfig()) ?? null;
@@ -38,7 +35,6 @@ export async function getStaticProps() {
 	return {
 		props: {
 			menuItems,
-			subMenuItems,
 			footerItems,
 			// contactData,
 			// formConfig,

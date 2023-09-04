@@ -16,7 +16,7 @@ import Burger from '../items/Burger';
 import SubMenu from '../items/submenu';
 
 // STYLES
-import { StyledLogoWrapper, StyledButton } from '../StylesGeneral';
+import { StyledLogoWrapper, StyledButton, StyledText } from '../StylesGeneral';
 import {
 	StyledNavWrapper,
 	StyledNavMenuWrapper,
@@ -32,20 +32,18 @@ import {
 	StyledMobileButtonsWrapper,
 } from './Styles';
 
-const Navigation = ({ menuItems, subMenuItems, hideSubMenu }) => {
+const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 	const router = useRouter();
 
 	return (
 		<StyledMenuWrapper>
 			<StyledNavWrapper submenu hideSubMenu={hideSubMenu}>
 				<StyledSubMenuWrapper>
-					{subMenuItems && <SubMenu subMenuItems={subMenuItems} />}
+					{footerItems && <SubMenu footerItems={footerItems} />}
 
-					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref target="_blank">
-						<a aria-label="Facebook" alt="Facebook">
-							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
-						</a>
-					</Link>
+					<StyledText h5 white bold>
+						WYŚLIJ ZAPYTANIE
+					</StyledText>
 				</StyledSubMenuWrapper>
 			</StyledNavWrapper>
 
@@ -76,7 +74,7 @@ const Navigation = ({ menuItems, subMenuItems, hideSubMenu }) => {
 	);
 };
 
-const NavigationMobile = ({ menuItems, subMenuItems, children }) => {
+const NavigationMobile = ({ menuItems, footerItems, children }) => {
 	const router = useRouter();
 	const [asideMenu, setAsideMenu] = useState(false);
 
@@ -126,7 +124,7 @@ const NavigationMobile = ({ menuItems, subMenuItems, children }) => {
 					)}
 
 					<StyledNavWrapper submenu>
-						{subMenuItems && <SubMenu subMenuItems={subMenuItems} />}
+						{footerItems && <SubMenu footerItems={footerItems} />}
 
 						<Link href="https://www.facebook.com/starakaplicarestauracja" passHref>
 							<a alt="Facebook" aria-label="Facebook">

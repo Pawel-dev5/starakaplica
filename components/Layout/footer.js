@@ -1,32 +1,82 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
 // COMPONENTS
 import { Container } from '../elements';
 import { KontaktItems } from '../items';
 
 // STYLES
-import { StyledFooterWrapper, StyledFooter, StyledSubFooter, StyledIframe } from './Styles';
+import { StyledFooterWrapper, StyledFooter, StyledSubFooter, StyledSocialWrapper } from './Styles';
 import { StyledText } from '../StylesGeneral';
 
-const Footer = ({ footerItems, subMenuItems }) => {
+const Footer = ({ footerItems, menuItems }) => {
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
+
+	const findItemType = (values, type) => values?.find((item) => item?.type === type);
+	const findSocialItemType = (values, type) => values?.find((item) => item?.label === type);
+
+	console.log(footerItems);
+	console.log(findItemType(footerItems, 'title'));
 
 	return (
 		<Container>
 			<StyledFooter>
 				<StyledFooterWrapper>
-					{footerItems && subMenuItems && (
-						<KontaktItems subMenuItems={subMenuItems} footerItems={footerItems} color="white" />
-					)}
+					<StyledSocialWrapper>
+						<StyledText white h3 bold>
+							{findItemType(footerItems, 'title')?.label}
+						</StyledText>
 
-					<StyledIframe
-						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10241.729473778934!2d20.0513739!3d50.0781913!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6544d5b2113f21d5!2sDom%20W%C4%99dkarza%20%7C%20Sala%20Weselna!5e0!3m2!1spl!2spl!4v1646849746358!5m2!1spl!2spl"
-						loading="lazy"
-						title="mapa"
-					/>
+						<StyledText white h4>
+							{findItemType(footerItems, 'description')?.label}
+						</StyledText>
+
+						<StyledText white h3 bold>
+							{findItemType(footerItems, 'socialTitle')?.label}
+						</StyledText>
+
+						<div>
+							{findSocialItemType(footerItems, 'Facebook') && (
+								<Link href={findSocialItemType(footerItems, 'Facebook')?.path} passHref target="_blank">
+									<a
+										aria-label={findSocialItemType(footerItems, 'Facebook')?.label}
+										alt={findSocialItemType(footerItems, 'Facebook')?.label}
+									>
+										<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
+									</a>
+								</Link>
+							)}
+
+							{findSocialItemType(footerItems, 'Instagram') && (
+								<Link href={findSocialItemType(footerItems, 'Instagram')?.path} passHref target="_blank">
+									<a
+										aria-label={findSocialItemType(footerItems, 'Instagram')?.label}
+										alt={findSocialItemType(footerItems, 'Instagram')?.label}
+									>
+										<FontAwesomeIcon icon={faInstagramSquare} className="fa-xl" />
+									</a>
+								</Link>
+							)}
+						</div>
+					</StyledSocialWrapper>
+
+					<div>
+						<StyledText center h3 bold white>
+							MENU
+						</StyledText>
+						<div>
+							{menuItems?.map((item) => (
+								<StyledText left h5 white key={item?.node?.id}>
+									{item?.node?.label}
+								</StyledText>
+							))}
+						</div>
+					</div>
+
+					{footerItems && <KontaktItems footerItems={footerItems} color="white" />}
 				</StyledFooterWrapper>
 
 				<StyledSubFooter>

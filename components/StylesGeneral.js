@@ -8,7 +8,6 @@ export const StyledContainer = styled.div`
 
 export const StyledText = styled.span`
 	font-size: 1rem;
-	padding: 0.5rem;
 	color: ${({ theme }) => theme.white};
 
 	${({ h1 }) =>
@@ -40,11 +39,18 @@ export const StyledText = styled.span`
 			line-height: 1.5rem;
 		`}
 
-	${({ h5 }) =>
-		h5 &&
+	${({ h4 }) =>
+		h4 &&
 		css`
 			font-size: 0.9rem;
 			line-height: 1.3rem;
+		`}
+
+	${({ h5 }) =>
+		h5 &&
+		css`
+			font-size: 0.8rem;
+			line-height: 0.8rem;
 		`}
 
     ${({ h6 }) =>
