@@ -41,9 +41,13 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 				<StyledSubMenuWrapper>
 					{footerItems && <SubMenu footerItems={footerItems} />}
 
-					<StyledText h5 white bold>
-						WYŚLIJ ZAPYTANIE
-					</StyledText>
+					<Link href="/kontakt" passHref>
+						<a>
+							<StyledText h5 white bold hover>
+								WYŚLIJ ZAPYTANIE
+							</StyledText>
+						</a>
+					</Link>
 				</StyledSubMenuWrapper>
 			</StyledNavWrapper>
 

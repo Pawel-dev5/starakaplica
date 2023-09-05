@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPhone, faPhoneVolume, faEnvelopeOpen, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 // STYLES
 import { StyledFooterAdres, StyledTelWrapper, StyledContact, StyledAdressWrapper } from './Styles';
@@ -8,74 +8,89 @@ import { StyledText, StyledSubMenu } from '../StylesGeneral';
 
 const StyledIcon = styled(FontAwesomeIcon)`
 	font-size: 1.3rem;
-	margin-left: 0.5rem;
 `;
 
-const KontaktItems = ({ footerItems, color }) => (
-	<StyledContact color={color}>
-		{footerItems && (
-			<>
-				<StyledFooterAdres>
-					<div>
-						<StyledIcon icon={faHome} className="fa-xl" />
-						<StyledText footer={color === 'black' ?? true} h4={color === 'white' ?? true} h3={color === 'black' ?? true}>
-							Adres
-						</StyledText>
-					</div>
+const KontaktItems = ({ footerItems, color }) => {
+	const findItemType = (values, type) => values?.find((item) => item?.type === type);
 
-					<StyledAdressWrapper>
-						<StyledText
-							footer={color === 'black' ?? true}
-							h4={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-							footerAdres={color === 'black' ?? true}
-							textAlign="left"
-						>
-							{footerItems[0]?.label}
-						</StyledText>
-						<StyledText
-							footer={color === 'black' ?? true}
-							h4={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-							textAlign="left"
-						>
-							NIP: {footerItems[1]?.label}
-						</StyledText>
-					</StyledAdressWrapper>
-				</StyledFooterAdres>
+	return (
+		<StyledContact color={color}>
+			<StyledText center h3 bold white>
+				{findItemType(footerItems, 'contactTitle')?.label}
+			</StyledText>
+			{footerItems && (
+				<>
+					<StyledFooterAdres>
+						<StyledIcon icon={faPhoneVolume} className="fa-xl" />
 
-				<StyledFooterAdres>
-					<div>
-						<StyledIcon icon={faPhone} className="fa-xl" />
-
-						<StyledText footer={color === 'black' ?? true} h4={color === 'white' ?? true} h3={color === 'black' ?? true}>
-							Zadzwoń
-						</StyledText>
-					</div>
-
-					{/* <StyledTelWrapper>
-						{subMenuItems?.map((item) => (
-							<StyledSubMenu
-								href={`${item?.path === 'http://email' ? 'mailto:' : 'tel:'}${item?.label}`}
-								key={item?.id}
-								footer
+						<StyledAdressWrapper>
+							<StyledText
+								footer={color === 'black' ?? true}
+								h4={color === 'white' ?? true}
+								h3={color === 'black' ?? true}
+								footerAdres={color === 'black' ?? true}
+								textAlign="left"
 							>
-								<StyledText
-									h4={color === 'white' ?? true}
-									h3={color === 'black' ?? true}
-									black={color === 'black' ?? true}
-									key={item?.id}
-								>
-									{item?.label}
-								</StyledText>
-							</StyledSubMenu>
-						))}
-					</StyledTelWrapper> */}
-				</StyledFooterAdres>
-			</>
-		)}
-	</StyledContact>
-);
+								Telefon
+							</StyledText>
+
+							<StyledText
+								footer={color === 'black' ?? true}
+								h4={color === 'white' ?? true}
+								h3={color === 'black' ?? true}
+								textAlign="left"
+							>
+								<a href={`tel:${findItemType(footerItems, 'phone')?.label}`}>{findItemType(footerItems, 'phone')?.label}</a>
+							</StyledText>
+						</StyledAdressWrapper>
+					</StyledFooterAdres>
+
+					<StyledFooterAdres>
+						<StyledIcon icon={faEnvelopeOpen} className="fa-xl" />
+
+						<StyledAdressWrapper>
+							<StyledText
+								footer={color === 'black' ?? true}
+								h4={color === 'white' ?? true}
+								h3={color === 'black' ?? true}
+								footerAdres={color === 'black' ?? true}
+								textAlign="left"
+							>
+								Adres e-mail
+							</StyledText>
+
+							<StyledText
+								footer={color === 'black' ?? true}
+								h4={color === 'white' ?? true}
+								h3={color === 'black' ?? true}
+								textAlign="left"
+							>
+								<a href={`mailto:${findItemType(footerItems, 'email')?.label}`}>
+									{findItemType(footerItems, 'email')?.label}
+								</a>
+							</StyledText>
+						</StyledAdressWrapper>
+					</StyledFooterAdres>
+
+					<StyledFooterAdres>
+						<StyledIcon icon={faMapMarkerAlt} className="fa-xl" />
+
+						<StyledAdressWrapper>
+							<StyledText
+								footer={color === 'black' ?? true}
+								h4={color === 'white' ?? true}
+								h3={color === 'black' ?? true}
+								textAlign="left"
+							>
+								{findItemType(footerItems, 'http://adres')?.label}
+							</StyledText>
+						</StyledAdressWrapper>
+					</StyledFooterAdres>
+				</>
+			)}
+		</StyledContact>
+	);
+};
 
 const ContactPageItems = ({ adres, telefon, color }) => (
 	<StyledContact color={color}>

@@ -2,12 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const StyledFooterAdres = styled.div`
 	display: flex;
-	align-items: flex-start;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 `;
+
 export const StyledSubMenuWrapper = styled.div`
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 1rem;
 `;
 
@@ -22,6 +24,10 @@ export const StyledTelWrapper = styled.div`
 
 export const StyledContact = styled.div`
 	color: ${({ theme }) => theme.black};
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
 
 	* {
 		color: ${({ theme }) => theme.black};
@@ -51,7 +57,7 @@ export const StyledContact = styled.div`
 export const StyledAdressWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 2rem;
+	min-width: 8rem;
 
 	span {
 		width: 90%;

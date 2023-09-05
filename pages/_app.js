@@ -1,6 +1,6 @@
-/* eslint-disable import/order */
 // STYLES
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+// eslint-disable-next-line import/order
 import theme from '../theme/themeDefault';
 
 // FONTAWESOME
@@ -14,7 +14,7 @@ import SimpleReactLightbox from 'simple-react-lightbox';
 import 'react-multi-carousel/lib/styles.css';
 
 // VERCEL ANALYTICS
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
 
 // FONTAWESOME CONFIG
 config.autoAddCss = false;
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
       box-sizing: border-box;    
       overflow-wrap: break-word;    
       overflow: hidden;
-      
+      text-decoration: none;
     }
 
   }
@@ -43,7 +43,7 @@ const App = ({ Component, pageProps }) => (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<Component {...pageProps} />
-			<Analytics />
+			{/* <Analytics /> */}
 		</ThemeProvider>
 	</SimpleReactLightbox>
 );

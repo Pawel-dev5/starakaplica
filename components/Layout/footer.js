@@ -8,7 +8,15 @@ import { Container } from '../elements';
 import { KontaktItems } from '../items';
 
 // STYLES
-import { StyledFooterWrapper, StyledFooter, StyledSubFooter, StyledSocialWrapper } from './Styles';
+import {
+	StyledFooterWrapper,
+	StyledFooter,
+	StyledSubFooter,
+	StyledSocialWrapper,
+	StyledSocials,
+	StyledMenuItemsContainer,
+	StyledMenuContainer,
+} from './Styles';
 import { StyledText } from '../StylesGeneral';
 
 const Footer = ({ footerItems, menuItems }) => {
@@ -18,15 +26,12 @@ const Footer = ({ footerItems, menuItems }) => {
 	const findItemType = (values, type) => values?.find((item) => item?.type === type);
 	const findSocialItemType = (values, type) => values?.find((item) => item?.label === type);
 
-	console.log(footerItems);
-	console.log(findItemType(footerItems, 'title'));
-
 	return (
 		<Container>
 			<StyledFooter>
 				<StyledFooterWrapper>
 					<StyledSocialWrapper>
-						<StyledText white h3 bold>
+						<StyledText center h3 bold white>
 							{findItemType(footerItems, 'title')?.label}
 						</StyledText>
 
@@ -34,11 +39,11 @@ const Footer = ({ footerItems, menuItems }) => {
 							{findItemType(footerItems, 'description')?.label}
 						</StyledText>
 
-						<StyledText white h3 bold>
+						<StyledText white h3 bold padding="1rem 0 0 0">
 							{findItemType(footerItems, 'socialTitle')?.label}
 						</StyledText>
 
-						<div>
+						<StyledSocials>
 							{findSocialItemType(footerItems, 'Facebook') && (
 								<Link href={findSocialItemType(footerItems, 'Facebook')?.path} passHref target="_blank">
 									<a
@@ -60,36 +65,32 @@ const Footer = ({ footerItems, menuItems }) => {
 									</a>
 								</Link>
 							)}
-						</div>
+						</StyledSocials>
 					</StyledSocialWrapper>
 
-					<div>
+					<StyledMenuContainer>
 						<StyledText center h3 bold white>
 							MENU
 						</StyledText>
-						<div>
+
+						<StyledMenuItemsContainer>
 							{menuItems?.map((item) => (
-								<StyledText left h5 white key={item?.node?.id}>
-									{item?.node?.label}
-								</StyledText>
+								<a key={item?.node?.id} href={item?.node?.path}>
+									<StyledText left h3 white>
+										{item?.node?.label}
+									</StyledText>
+								</a>
 							))}
-						</div>
-					</div>
+						</StyledMenuItemsContainer>
+					</StyledMenuContainer>
 
 					{footerItems && <KontaktItems footerItems={footerItems} color="white" />}
 				</StyledFooterWrapper>
 
 				<StyledSubFooter>
-					<StyledText center h5 white>
+					<StyledText center h5 white lh="1.1rem">
 						© {year} Wszelkie prawa zastrzeżone. Restauracja Stara Kaplica. Made by Paweł Nowecki
 					</StyledText>
-
-					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref>
-						{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-						<a alt="Facebook" aria-label="Facebook">
-							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
-						</a>
-					</Link>
 				</StyledSubFooter>
 			</StyledFooter>
 		</Container>

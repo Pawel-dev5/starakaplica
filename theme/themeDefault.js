@@ -5,6 +5,7 @@ const ThemeDefault = () => {
 		white: '#fff',
 		black: 'hsl(0, 0%, 0%)',
 		red: '#ff0000',
+		baseGray: '#1E2227',
 
 		grey100: 'hsl(0, 0%, 96%)',
 		grey200: 'hsl(0, 0%, 90%)',

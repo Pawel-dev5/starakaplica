@@ -49,7 +49,6 @@ export const StyledNavMenuWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-end;
 	gap: 1.6rem;
-	padding: 0 3rem;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
 		padding: 0 0.5rem;
@@ -63,6 +62,7 @@ export const StyledNavWrapper = styled.nav`
 	width: 100%;
 	max-width: 1200px;
 	height: 6rem;
+	padding: 0 3rem;
 
 	${({ submenu }) =>
 		submenu &&
@@ -106,7 +106,6 @@ export const StyledSubMenuWrapper = styled.div`
 	height: 50px;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) and (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-		padding: 0 2rem;
 		height: 40px;
 	}
 `;
@@ -149,8 +148,13 @@ export const StyledFooterWrapper = styled.div`
 	padding: 1rem 2rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+		gap: 3rem;
 		padding: 3rem 0;
 		flex-direction: row;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+		margin-top: 2rem;
 	}
 
 	> div {
@@ -164,10 +168,11 @@ export const StyledFooterWrapper = styled.div`
 `;
 
 export const StyledFooter = styled.footer`
-	background-color: ${({ theme }) => theme.black};
+	background-color: ${({ theme }) => theme.baseGray};
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	padding: 0 3rem;
 
 	svg {
 		cursor: pointer;
@@ -186,12 +191,37 @@ export const StyledIconWrapper = styled.div`
 	gap: 1rem;
 `;
 
+export const StyledSocials = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+`;
+
+export const StyledMenuItemsContainer = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 0.3rem;
+`;
+
+export const StyledMenuContainer = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 1rem;
+`;
+
 export const StyledSocialWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-end;
 	flex-direction: column;
 	gap: 1rem;
+	min-width: 45%;
 `;
 
 export const StyledCopyright = styled.div`
@@ -306,7 +336,7 @@ export const StyledSubFooter = styled.div`
 		flex-direction: row;
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) and (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-		padding: 0 7rem 0 2rem;
+		padding: 0;
 	}
 `;
 

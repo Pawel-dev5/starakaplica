@@ -17,7 +17,7 @@ const SubMenu = ({ footerItems }) => {
 
 	return (
 		<StyledSubMenuWrapper>
-			<StyledSubMenu href={`tel:${findItemType(footerItems, 'email')?.label}`}>
+			<StyledSubMenu href={`mailto:${findItemType(footerItems, 'email')?.label}`}>
 				{findItemType(footerItems, 'email')?.label}
 			</StyledSubMenu>
 
@@ -31,7 +31,7 @@ const SubMenu = ({ footerItems }) => {
 						aria-label={findSocialItemType(footerItems, 'Facebook')?.label}
 						alt={findSocialItemType(footerItems, 'Facebook')?.label}
 					>
-						<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
+						<FontAwesomeIcon icon={faFacebookSquare} className="fa-l" />
 					</a>
 				</Link>
 			)}
@@ -42,7 +42,7 @@ const SubMenu = ({ footerItems }) => {
 						aria-label={findSocialItemType(footerItems, 'Instagram')?.label}
 						alt={findSocialItemType(footerItems, 'Instagram')?.label}
 					>
-						<FontAwesomeIcon icon={faInstagramSquare} className="fa-xl" />
+						<FontAwesomeIcon icon={faInstagramSquare} className="fa-l" />
 					</a>
 				</Link>
 			)}

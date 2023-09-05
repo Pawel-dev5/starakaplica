@@ -9,6 +9,7 @@ export const StyledContainer = styled.div`
 export const StyledText = styled.span`
 	font-size: 1rem;
 	color: ${({ theme }) => theme.white};
+	text-decoration: none;
 
 	${({ h1 }) =>
 		h1 &&
@@ -25,13 +26,13 @@ export const StyledText = styled.span`
 		css`
 			font-size: 1.5rem;
 		`}
-			
+
 	${({ h2 }) =>
 		h2 &&
 		css`
 			font-size: 1.25rem;
 		`}
-			
+
 	${({ h3 }) =>
 		h3 &&
 		css`
@@ -53,49 +54,49 @@ export const StyledText = styled.span`
 			line-height: 0.8rem;
 		`}
 
-    ${({ h6 }) =>
+	${({ h6 }) =>
 		h6 &&
 		css`
 			font-size: 0.7rem;
 		`}
 
-    ${({ black }) =>
+	${({ black }) =>
 		black &&
 		css`
 			color: ${({ theme }) => theme.black};
 		`}
 
-    ${({ grey }) =>
+	${({ grey }) =>
 		grey &&
 		css`
 			color: ${({ theme }) => theme.grey700};
 		`}
 
-    ${({ bold }) =>
+	${({ bold }) =>
 		bold &&
 		css`
 			font-weight: ${({ theme }) => theme.bold};
 		`}
 
-    ${({ semiBold }) =>
+	${({ semiBold }) =>
 		semiBold &&
 		css`
 			font-weight: ${({ theme }) => theme.semiBold};
 		`}
 
-    ${({ avatarName }) =>
+	${({ avatarName }) =>
 		avatarName &&
 		css`
 			margin-left: 1rem;
 		`}
 
-    ${({ pointer }) =>
+	${({ pointer }) =>
 		pointer &&
 		css`
 			cursor: pointer;
 		`}
-
-    ${({ center }) =>
+	
+	${({ center }) =>
 		center &&
 		css`
 			text-align: center;
@@ -361,7 +362,6 @@ export const StyledBlogTitle = styled.span`
 export const StyledSubMenu = styled.a`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
-	padding: 0 0.8rem;
 	font-size: 0.85rem;
 	line-height: 1.5rem;
 
