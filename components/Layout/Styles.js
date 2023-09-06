@@ -139,6 +139,7 @@ export const StyledImageWrapper = styled.div`
 
 // FOOTER
 export const StyledFooterWrapper = styled.div`
+	position: relative;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-around;
@@ -146,24 +147,20 @@ export const StyledFooterWrapper = styled.div`
 	max-width: 1220px;
 	flex-direction: column;
 	padding: 1rem 2rem;
+	overflow: visible;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		gap: 3rem;
+		gap: 2.5rem;
 		padding: 3rem 0;
 		flex-direction: row;
+		margin-top: 4rem;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-		margin-top: 2rem;
-	}
-
-	> div {
-		width: 100%;
-		margin: 1.5rem 0px;
-		@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-			width: 33%;
-			margin: 0;
-		}
+		padding: 0;
+		gap: 3rem;
+		margin-top: 8rem;
+		margin-bottom: 4rem;
 	}
 `;
 
@@ -173,6 +170,7 @@ export const StyledFooter = styled.footer`
 	align-items: center;
 	flex-direction: column;
 	padding: 0 3rem;
+	overflow: visible;
 
 	svg {
 		cursor: pointer;
@@ -191,6 +189,54 @@ export const StyledIconWrapper = styled.div`
 	gap: 1rem;
 `;
 
+export const StyledCTAButton = styled.div`
+	height: 3.5rem;
+	width: 15rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	background-color: ${({ theme }) => theme.white};
+	border: 1px solid ${({ theme }) => theme.black};
+
+	a {
+		color: ${({ theme }) => theme.black};
+		font-size: 1.125rem;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	:hover {
+		border: 1px solid ${({ theme }) => theme.white};
+		background-color: ${({ theme }) => theme.black};
+		a {
+			color: ${({ theme }) => theme.white};
+		}
+	}
+`;
+
+export const StyledCTAWrapper = styled.div`
+	height: 11rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: ${({ theme }) => theme.black};
+	position: absolute;
+	top: -14rem;
+	flex-direction: column;
+	gap: 2rem;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+		width: 95%;
+		justify-content: space-between;
+		height: 7rem;
+		padding: 0 3rem;
+		flex-direction: row;
+		top: -7.5rem;
+	}
+`;
+
 export const StyledSocials = styled.div`
 	display: flex;
 	align-items: center;
@@ -206,6 +252,16 @@ export const StyledMenuItemsContainer = styled.div`
 	gap: 0.3rem;
 `;
 
+export const StyledCTAText = styled.h1`
+	font-size: 1.5rem;
+	color: ${({ theme }) => theme.white};
+	white-space: nowrap;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+		font-size: 2rem;
+	}
+`;
+
 export const StyledMenuContainer = styled.div`
 	display: flex;
 	align-items: flex-start;
@@ -213,6 +269,7 @@ export const StyledMenuContainer = styled.div`
 	flex-direction: column;
 	gap: 1rem;
 	margin-top: 1rem;
+	min-width: 20%;
 `;
 
 export const StyledSocialWrapper = styled.div`
@@ -221,7 +278,7 @@ export const StyledSocialWrapper = styled.div`
 	justify-content: flex-end;
 	flex-direction: column;
 	gap: 1rem;
-	min-width: 45%;
+	min-width: 40%;
 `;
 
 export const StyledCopyright = styled.div`
@@ -330,7 +387,7 @@ export const StyledSubFooter = styled.div`
 	width: 100%;
 	max-width: 1220px;
 	min-height: 2.8rem;
-	padding: 2rem;
+	padding: 2rem 0;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		flex-direction: row;

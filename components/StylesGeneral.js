@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 export const StyledContainer = styled.div`
 	width: 100%;
 	margin: auto;
+	overflow: visible;
 `;
 
 export const StyledText = styled.span`
@@ -164,6 +165,12 @@ export const StyledText = styled.span`
 		css`
 			width: 58%;
 			color: ${({ theme }) => theme.black};
+		`}
+
+    ${({ nowrap }) =>
+		nowrap &&
+		css`
+			white-space: nowrap;
 		`}
 
     ${({ hover }) =>

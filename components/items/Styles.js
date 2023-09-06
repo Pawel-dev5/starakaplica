@@ -3,8 +3,9 @@ import styled, { css } from 'styled-components';
 export const StyledFooterAdres = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: 1rem;
+	width: 100%;
 `;
 
 export const StyledSubMenuWrapper = styled.div`
@@ -28,6 +29,7 @@ export const StyledContact = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 1rem;
+	min-width: 30%;
 
 	* {
 		color: ${({ theme }) => theme.black};
@@ -58,6 +60,7 @@ export const StyledAdressWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	min-width: 8rem;
+	width: 100%;
 
 	span {
 		width: 90%;

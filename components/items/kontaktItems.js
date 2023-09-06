@@ -64,6 +64,7 @@ const KontaktItems = ({ footerItems, color }) => {
 								h4={color === 'white' ?? true}
 								h3={color === 'black' ?? true}
 								textAlign="left"
+								width="100%"
 							>
 								<a href={`mailto:${findItemType(footerItems, 'email')?.label}`}>
 									{findItemType(footerItems, 'email')?.label}

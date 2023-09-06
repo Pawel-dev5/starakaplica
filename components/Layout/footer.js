@@ -16,6 +16,9 @@ import {
 	StyledSocials,
 	StyledMenuItemsContainer,
 	StyledMenuContainer,
+	StyledCTAWrapper,
+	StyledCTAButton,
+	StyledCTAText,
 } from './Styles';
 import { StyledText } from '../StylesGeneral';
 
@@ -30,6 +33,16 @@ const Footer = ({ footerItems, menuItems }) => {
 		<Container>
 			<StyledFooter>
 				<StyledFooterWrapper>
+					<StyledCTAWrapper>
+						<StyledCTAText>Potrzebujesz pomocy?</StyledCTAText>
+
+						<StyledCTAButton>
+							<Link href="/kontakt" passHref>
+								<a>WYŚLIJ ZAPYTANIE</a>
+							</Link>
+						</StyledCTAButton>
+					</StyledCTAWrapper>
+
 					<StyledSocialWrapper>
 						<StyledText center h3 bold white>
 							{findItemType(footerItems, 'title')?.label}
