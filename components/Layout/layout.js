@@ -7,21 +7,10 @@ import Footer from './footer';
 import MessengerIcon from '../items/MessengerIcon';
 
 // STYLES
-import { StyledLayout, StyledLayoutHeader, StyledLayoutHeaderText } from './Styles';
+import { StyledLayout, StyledLayoutHeaderText, StyledLine } from './Styles';
 import { StyledText } from '../StylesGeneral';
 
-const Layout = ({
-	children,
-	slug,
-	menuItems,
-	footerItems,
-	headerImg,
-	headerText,
-	subHeaderText,
-	setAsideMenu,
-	asideMenu,
-	seo,
-}) => {
+const Layout = ({ children, slug, menuItems, footerItems, headerImg, headerText, setAsideMenu, asideMenu, seo }) => {
 	const [scrollDir, setScrollDir] = useState('START');
 	const [footerValues, setFooterValues] = useState([]);
 
@@ -69,6 +58,7 @@ const Layout = ({
 			newArr.push({ ...item?.node, type: item?.node?.path?.replace('https://', '') });
 		});
 		setFooterValues(newArr);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -81,21 +71,13 @@ const Layout = ({
 				)}
 
 				<Navigation.Mobile menuItems={menuItems} setAsideMenu={setAsideMenu} asideMenu={asideMenu}>
-					{headerImg?.sourceUrl && <StyledLayoutHeader src={headerImg?.sourceUrl} />}
-
-					{(subHeaderText || headerText) && (
+					{headerText && (
 						<StyledLayoutHeaderText isImg={headerImg?.sourceUrl}>
-							{headerText && (
-								<StyledText h1 black>
-									{headerText}
-								</StyledText>
-							)}
+							<StyledText h1 black>
+								{headerText}
+							</StyledText>
 
-							{subHeaderText && (
-								<StyledText h3 black>
-									{subHeaderText}
-								</StyledText>
-							)}
+							<StyledLine />
 						</StyledLayoutHeaderText>
 					)}
 					{children}

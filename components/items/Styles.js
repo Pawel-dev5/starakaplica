@@ -6,21 +6,39 @@ export const StyledFooterAdres = styled.div`
 	justify-content: flex-start;
 	gap: 1rem;
 	width: 100%;
+	min-height: 3rem;
+
+	svg {
+		cursor: pointer;
+		color: ${({ theme }) => theme.white};
+		:hover {
+			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
+		}
+	}
+`;
+
+export const StyledContaktItemsWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+	width: 100%;
+	min-height: 3rem;
+
+	svg {
+		min-width: 2rem;
+		cursor: pointer;
+		color: ${({ theme }) => theme.white};
+		:hover {
+			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
+		}
+	}
 `;
 
 export const StyledSubMenuWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-`;
-
-export const StyledTelWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-	padding-bottom: 1rem;
-	padding-top: 0.5rem;
-	align-items: flex-start;
 `;
 
 export const StyledContact = styled.div`

@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import Link from 'next/link';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPhone, faPhoneVolume, faEnvelopeOpen, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneVolume, faEnvelopeOpen, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
 // STYLES
-import { StyledFooterAdres, StyledTelWrapper, StyledContact, StyledAdressWrapper } from './Styles';
-import { StyledText, StyledSubMenu } from '../StylesGeneral';
+import { StyledFooterAdres, StyledContact, StyledAdressWrapper, StyledContaktItemsWrapper } from './Styles';
+import { StyledText } from '../StylesGeneral';
 
 const StyledIcon = styled(FontAwesomeIcon)`
 	font-size: 1.3rem;
@@ -18,6 +21,7 @@ const KontaktItems = ({ footerItems, color }) => {
 			<StyledText center h3 bold white>
 				{findItemType(footerItems, 'contactTitle')?.label}
 			</StyledText>
+
 			{footerItems && (
 				<>
 					<StyledFooterAdres>
@@ -93,72 +97,85 @@ const KontaktItems = ({ footerItems, color }) => {
 	);
 };
 
-const ContactPageItems = ({ adres, telefon, color }) => (
-	<StyledContact color={color}>
-		{adres && telefon && (
-			<>
-				<StyledFooterAdres>
-					<div>
-						<StyledIcon icon={faHome} className="fa-xl" />
-						<StyledText footer={color === 'black' ?? true} h5={color === 'white' ?? true} h3={color === 'black' ?? true}>
-							{adres?.tytul}
-						</StyledText>
-					</div>
+const ContactPageItems = ({ contaktitems, color }) => {
+	const findItemType = (values, type) => {
+		let newValue;
 
-					<StyledAdressWrapper>
-						<StyledText
-							footer={color === 'black' ?? true}
-							h3={color === 'black' ?? true}
-							h5={color === 'white' ?? true}
-							footerAdres={color === 'black' ?? true}
-							textAlign="left"
-						>
-							{adres?.adres}
-						</StyledText>
-						<StyledText
-							footer={color === 'black' ?? true}
-							h5={color === 'white' ?? true}
-							h3={color === 'black' ?? true}
-							textAlign="left"
-						>
-							{adres?.nip}
-						</StyledText>
-					</StyledAdressWrapper>
-				</StyledFooterAdres>
+		Object.entries(values).forEach(([key, value]) => {
+			if (key === type) {
+				newValue = value;
+			}
+			return null;
+		});
+		return newValue;
+	};
 
-				<StyledFooterAdres>
-					<div>
-						<StyledIcon icon={faPhone} className="fa-xl" />
+	return (
+		<StyledContact color={color}>
+			{contaktitems && (
+				<>
+					<StyledContaktItemsWrapper>
+						<StyledIcon icon={faPhoneVolume} style={{ fontSize: '2rem' }} />
 
-						<StyledText footer={color === 'black' ?? true} h5={color === 'white' ?? true} h3={color === 'black' ?? true}>
-							{telefon?.tytul}
-						</StyledText>
-					</div>
-
-					<StyledTelWrapper>
-						<StyledSubMenu footer href={`tel:${telefon?.telefon}`}>
-							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
-								{telefon?.telefon}
+						<StyledAdressWrapper>
+							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
+								<a href={`tel:${findItemType(contaktitems, 'telefon')}`}>{findItemType(contaktitems, 'telefon')}</a>
 							</StyledText>
-						</StyledSubMenu>
+						</StyledAdressWrapper>
+					</StyledContaktItemsWrapper>
 
-						<StyledSubMenu footer href={`tel:${telefon?.telefon2}`}>
-							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
-								{telefon?.telefon2}
-							</StyledText>
-						</StyledSubMenu>
+					<StyledContaktItemsWrapper>
+						<StyledIcon icon={faEnvelopeOpen} style={{ fontSize: '2rem' }} />
 
-						<StyledSubMenu footer href={`mailto:${telefon?.email}`}>
-							<StyledText h5={color === 'white' ?? true} h3={color === 'black' ?? true} black={color === 'black' ?? true}>
-								{telefon?.email}
+						<StyledAdressWrapper>
+							<StyledText footer={color === 'black' ?? true} h2 textAlign="left" width="100%">
+								<a href={`mailto:${findItemType(contaktitems, 'adresemail')}`}>{findItemType(contaktitems, 'adresemail')}</a>
 							</StyledText>
-						</StyledSubMenu>
-					</StyledTelWrapper>
-				</StyledFooterAdres>
-			</>
-		)}
-	</StyledContact>
-);
+						</StyledAdressWrapper>
+					</StyledContaktItemsWrapper>
+
+					<StyledContaktItemsWrapper>
+						<StyledIcon icon={faMapMarkerAlt} style={{ fontSize: '2rem' }} />
+
+						<StyledAdressWrapper>
+							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
+								{findItemType(contaktitems, 'adres')}
+							</StyledText>
+						</StyledAdressWrapper>
+					</StyledContaktItemsWrapper>
+
+					<StyledContaktItemsWrapper>
+						{findItemType(contaktitems, 'facebook') && (
+							<Link href={findItemType(contaktitems, 'facebook')} passHref target="_blank">
+								<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
+									<FontAwesomeIcon icon={faFacebookSquare} style={{ fontSize: '2rem' }} />
+								</a>
+							</Link>
+						)}
+
+						<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
+							Facebook
+						</StyledText>
+					</StyledContaktItemsWrapper>
+
+					<StyledContaktItemsWrapper>
+						{findItemType(contaktitems, 'instagram') && (
+							<Link href={findItemType(contaktitems, 'instagram')} passHref target="_blank">
+								<a aria-label={findItemType(contaktitems, 'instagram')} alt={findItemType(contaktitems, 'instagram')}>
+									<FontAwesomeIcon icon={faInstagramSquare} style={{ fontSize: '2rem' }} />
+								</a>
+							</Link>
+						)}
+
+						<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
+							Instagram
+						</StyledText>
+					</StyledContaktItemsWrapper>
+				</>
+			)}
+		</StyledContact>
+	);
+};
 
 KontaktItems.KontaktPage = ContactPageItems;
 export default KontaktItems;

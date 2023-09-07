@@ -62,7 +62,7 @@ export const StyledNavWrapper = styled.nav`
 	width: 100%;
 	max-width: 1200px;
 	height: 6rem;
-	padding: 0 3rem;
+	padding: ${({ theme }) => theme.containerPadding};
 
 	${({ submenu }) =>
 		submenu &&
@@ -169,7 +169,7 @@ export const StyledFooter = styled.footer`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 0 3rem;
+	padding: ${({ theme }) => theme.containerPadding};
 	overflow: visible;
 
 	svg {
@@ -228,10 +228,10 @@ export const StyledCTAWrapper = styled.div`
 	gap: 2rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		width: 95%;
+		width: 85%;
 		justify-content: space-between;
 		height: 7rem;
-		padding: 0 3rem;
+		padding: ${({ theme }) => theme.containerPadding};
 		flex-direction: row;
 		top: -7.5rem;
 	}
@@ -400,38 +400,21 @@ export const StyledSubFooter = styled.div`
 export const StyledIframe = styled.iframe`
 	border: none;
 	width: 100%;
-	height: 300px;
-
-	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		width: 55%;
-	}
-`;
-
-export const StyledLayoutHeader = styled.div`
-	${({ src }) =>
-		src &&
-		css`
-			margin-top: 40px;
-			min-height: 400px;
-			width: 100%;
-			background-image: url(${src});
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position-x: center;
-			background-position-y: center;
-		`}
+	height: 400px;
+	margin-bottom: -0.2rem;
+	margin-top: 2rem;
 `;
 
 export const StyledLayoutHeaderText = styled.div`
-	width: 60%;
-	border-bottom: 1px solid gray;
+	width: 100%;
 	min-height: 100px;
-	text-align: center;
+	text-align: left;
 	margin: auto;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	margin-bottom: 3rem;
 	margin-top: 1rem;
+	padding: ${({ theme }) => theme.containerPadding};
 	justify-content: center;
 	flex-direction: column;
 
@@ -442,12 +425,41 @@ export const StyledLayoutHeaderText = styled.div`
 		`}
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		width: 30%;
 		${({ isImg }) =>
 			!isImg &&
 			css`
 				margin-top: 10rem;
 			`}
+	}
+`;
+
+export const StyledLine = styled.div`
+	width: 46px;
+	height: 3px;
+	background-color: ${({ theme }) => theme.black};
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	overflow: visible;
+
+	::before {
+		content: '';
+		width: 3px;
+		height: 3px;
+		right: -5px;
+		background-color: #000;
+		display: inline-block;
+		position: absolute;
+	}
+
+	::after {
+		content: '';
+		width: 3px;
+		height: 3px;
+		right: -10px;
+		background-color: #000;
+		display: inline-block;
+		position: absolute;
 	}
 `;
 

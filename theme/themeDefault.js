@@ -43,6 +43,8 @@ const ThemeDefault = () => {
 			xl: '1200px',
 			xxl: '1400px',
 		},
+
+		containerPadding: '0 3rem',
 	};
 
 	theme.transparentize = ({ amount, color }) => transparentize(amount ?? 0.2, color ?? 'black');

@@ -12,6 +12,7 @@ export const StyledForm = styled.form`
 	justify-content: center;
 	gap: 0.5rem;
 	flex-flow: column nowrap;
+	margin-top: 1rem;
 `;
 
 export const StyledInput = styled.input`
@@ -66,10 +67,11 @@ export const StyledFormContainer = styled.div`
 	flex-flow: column nowrap;
 	text-align: center;
 	margin: 2.5rem auto;
+	gap: 6rem;
 	color: ${({ theme }) => theme.black};
 	width: 100%;
 	max-width: 1220px;
-	padding: 1rem 2rem;
+	padding: ${({ theme }) => theme.containerPadding};
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		flex-flow: row nowrap;
@@ -196,23 +198,10 @@ export const StyledImageWrapper = styled.div`
 	height: 500px;
 `;
 
-export const StyledOtherResWrapper = styled.div`
-	position: relative;
-	display: block;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-	cursor: pointer;
-
+export const StyledMapWrapper = styled.div`
 	height: 100%;
 	min-height: 400px;
-	span {
-		min-height: 400px;
-		img {
-			object-fit: cover;
-			min-height: 400px;
-		}
-	}
+
 	width: 100%;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.xl}) {

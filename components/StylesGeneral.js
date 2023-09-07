@@ -154,7 +154,7 @@ export const StyledText = styled.span`
     ${({ formStyle }) =>
 		formStyle &&
 		css`
-			font-size: 1.5rem;
+			font-size: 1.75rem;
 			padding: 0;
 			padding-bottom: 0.5rem;
 		`}
