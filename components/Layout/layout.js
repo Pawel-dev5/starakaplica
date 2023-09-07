@@ -80,6 +80,7 @@ const Layout = ({ children, slug, menuItems, footerItems, headerImg, headerText,
 							<StyledLine />
 						</StyledLayoutHeaderText>
 					)}
+
 					{children}
 				</Navigation.Mobile>
 

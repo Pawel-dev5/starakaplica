@@ -1,11 +1,10 @@
 // STYLES
-import { StylesGalleryGrid } from './Styles';
-import { StyledWrapper } from './StylesGeneral';
+import { StylesGalleryGrid, StyledGalleryWrapper } from './Styles';
 
 const Gallery = ({ content }) => (
-	<StyledWrapper column>
+	<StyledGalleryWrapper column start>
 		<StylesGalleryGrid dangerouslySetInnerHTML={{ __html: content }} />
-	</StyledWrapper>
+	</StyledGalleryWrapper>
 );
 
 export default Gallery;

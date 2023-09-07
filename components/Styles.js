@@ -81,6 +81,15 @@ export const StyledFormContainer = styled.div`
 	}
 `;
 
+export const StyledGalleryWrapper = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-flow: column nowrap;
+	padding: ${({ theme }) => theme.containerPadding};
+	margin-bottom: 10rem;
+`;
+
 export const StylesGalleryGrid = styled.div`
 	display: flex;
 	align-items: center;
@@ -93,6 +102,7 @@ export const StylesGalleryGrid = styled.div`
 		height: 100%;
 		max-width: 100%;
 		margin-bottom: 3rem;
+		gap: 2rem;
 
 		@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 			grid-template-columns: repeat(2, 1fr);
@@ -104,9 +114,8 @@ export const StylesGalleryGrid = styled.div`
 		}
 
 		.wp-block-image {
-			margin: 1rem;
 			height: 400px;
-			width: 400px;
+			width: 100%;
 
 			> img {
 				height: 100%;
@@ -124,6 +133,11 @@ export const StylesGalleryGrid = styled.div`
 	span {
 		margin: 1rem !important;
 		min-height: 20rem;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+		margin-bottom: 1rem;
 	}
 `;
 

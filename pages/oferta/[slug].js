@@ -7,7 +7,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 
 // STATE
 import { getAllPostsForHome } from '../../lib/home';
-import { getPrimaryMenu, getSubMenu, getFooter } from '../../lib/nav';
+import { getPrimaryMenu, getFooter } from '../../lib/nav';
 import { getPostAndMorePosts } from '../../lib/offerSlug';
 
 // COMPONENTS

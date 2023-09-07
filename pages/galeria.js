@@ -3,7 +3,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 
 // API
 import { getGalleryPage } from '../lib/gallery';
-import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
+import { getPrimaryMenu, getFooter } from '../lib/nav';
 
 // COMPONENTS
 const Layout = dynamic(() => import('../components/Layout/layout'));
@@ -18,7 +18,9 @@ const Index = ({ menuItems: { menuItems }, footerItems, galleryPage }) => (
 		subHeaderText={galleryPage?.galeria?.galleryHeader}
 		seo={galleryPage?.seo}
 	>
-		<SRLWrapper>{/* <Gallery content={galleryPage?.content} /> */}</SRLWrapper>
+		<SRLWrapper>
+			<Gallery content={galleryPage?.content} />
+		</SRLWrapper>
 	</Layout>
 );
 
@@ -27,13 +29,13 @@ export default Index;
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	// const galleryPage = (await getGalleryPage()) ?? null;
+	const galleryPage = (await getGalleryPage()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			footerItems,
-			// galleryPage,
+			galleryPage,
 		},
 		revalidate: 300, // In seconds
 	};

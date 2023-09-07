@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 // API
-import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
+import { getPrimaryMenu, getFooter } from '../lib/nav';
 import { Custom404 as Page } from '../components/custom404';
 
 // COMPONENTS

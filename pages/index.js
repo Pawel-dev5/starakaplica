@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 
 // API
 import { getHomePage } from '../lib/home';
-import { getPrimaryMenu, getSubMenu, getFooter } from '../lib/nav';
+import { getPrimaryMenu, getFooter } from '../lib/nav';
 
 // COMPONENTS
 const Layout = dynamic(() => import('../components/Layout/layout'));
