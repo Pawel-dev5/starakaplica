@@ -81,13 +81,71 @@ export const StyledFormContainer = styled.div`
 	}
 `;
 
-export const StyledGalleryWrapper = styled.div`
+export const StyledPageContainer = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
 	flex-flow: column nowrap;
 	padding: ${({ theme }) => theme.containerPadding};
 	margin-bottom: 10rem;
+`;
+
+export const StyledHistoryWrapper = styled.div`
+	.wp-block-group__inner-container {
+		display: flex;
+		flex-direction: column;
+
+		> .wp-block-columns:not(:last-child) {
+			::after {
+				content: '';
+				width: 3px;
+				height: 70%;
+				left: 40px;
+				top: 113px;
+				background-color: #000;
+				display: inline-block;
+				position: absolute;
+			}
+		}
+	}
+
+	.wp-block-columns {
+		position: relative;
+		display: flex;
+		padding-bottom: 3rem;
+		padding-top: 1rem;
+
+		> div:nth-child(1) {
+			width: 100%;
+			width: 5rem;
+			height: 5rem;
+			max-width: 5rem;
+			max-height: 5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid black;
+			border-radius: 50%;
+			margin-right: 3rem;
+
+			* {
+				width: 100%;
+				font-weight: 600;
+				text-align: center;
+			}
+		}
+		> div:nth-child(2) {
+			h3 {
+				font-weight: 600;
+			}
+		}
+
+		.wp-block-column {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+	}
 `;
 
 export const StylesGalleryGrid = styled.div`
