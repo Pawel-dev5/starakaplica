@@ -25,7 +25,7 @@ const ThemeDefault = () => {
 
 		overlay: `
         background-color: #000000;
-        opacity: 0.4;
+        opacity: 0.5;
         * {
           opacity: 1;
         }
@@ -45,6 +45,7 @@ const ThemeDefault = () => {
 		},
 
 		containerPadding: '0 3rem',
+		homePageFirstSectionHeight: '800px',
 	};
 
 	theme.transparentize = ({ amount, color }) => transparentize(amount ?? 0.2, color ?? 'black');

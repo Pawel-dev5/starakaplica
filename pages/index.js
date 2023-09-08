@@ -8,22 +8,22 @@ import { getPrimaryMenu, getFooter } from '../lib/nav';
 const Layout = dynamic(() => import('../components/Layout/layout'));
 const HomePage = dynamic(() => import('../components/Home/HomePage'));
 
-const Home = ({ menuItems: { menuItems }, footerItems, homePage }) => (
-	<Layout menuItems={menuItems?.edges} footerItems={footerItems?.menuItems?.edges} seo={homePage?.node?.seo}>
-		{/* <HomePage mainData={homePage?.node} /> */}
+const Home = ({ menuItems: { menuItems }, footerItems, homePageData }) => (
+	<Layout menuItems={menuItems?.edges} footerItems={footerItems?.menuItems?.edges} seo={homePageData?.seo}>
+		<HomePage homePageData={homePageData} />
 	</Layout>
 );
 
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	// const homePage = (await getHomePage()) ?? null;
+	const homePageData = (await getHomePage()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			footerItems,
-			// homePage,
+			homePageData,
 		},
 		revalidate: 300, // In seconds
 	};

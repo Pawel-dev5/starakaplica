@@ -66,11 +66,9 @@ export const StyledFormContainer = styled.div`
 	justify-content: space-around;
 	flex-flow: column nowrap;
 	text-align: center;
-	margin: 2.5rem auto;
 	gap: 6rem;
 	color: ${({ theme }) => theme.black};
 	width: 100%;
-	max-width: 1220px;
 	padding: ${({ theme }) => theme.containerPadding};
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -126,7 +124,10 @@ export const StyledHistoryWrapper = styled.div`
 			justify-content: center;
 			border: 1px solid black;
 			border-radius: 50%;
-			margin-right: 3rem;
+			margin-right: 1.5rem;
+			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+				margin-right: 3rem;
+			}
 
 			* {
 				width: 100%;
@@ -195,7 +196,8 @@ export const StylesGalleryGrid = styled.div`
 
 	h2 {
 		font-size: 1.75rem;
-		margin-bottom: 1rem;
+		font-weight: 500;
+		margin-bottom: 3rem;
 	}
 `;
 

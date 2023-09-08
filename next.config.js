@@ -5,6 +5,7 @@ const nextConfig = {
 		domains: [
 			'https://stara-kaplica.pl/',
 			'https://starakaplicacms.pawelnowecki.pl',
+			'starakaplicacms.pawelnowecki.pl',
 			'assets.vercel.com',
 			'secure.gravatar.com',
 		],

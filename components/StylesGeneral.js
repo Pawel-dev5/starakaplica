@@ -67,6 +67,12 @@ export const StyledText = styled.span`
 			color: ${({ theme }) => theme.black};
 		`}
 
+	${({ white }) =>
+		white &&
+		css`
+			color: ${({ theme }) => theme.white};
+		`}
+
 	${({ grey }) =>
 		grey &&
 		css`
@@ -107,16 +113,6 @@ export const StyledText = styled.span`
 		footerAdres &&
 		css`
 			width: 55%;
-		`};
-
-	${({ main }) =>
-		main &&
-		css`
-			z-index: 9;
-			padding: 10px 20px;
-			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-				padding: 0;
-			}
 		`};
 
 	${({ width }) =>

@@ -29,14 +29,14 @@ export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
 	const contactData = (await getContactData()) ?? null;
-	const formConfig = (await getConfig()) ?? null;
+	// const formConfig = (await getConfig()) ?? null;
 
 	return {
 		props: {
 			menuItems,
 			footerItems,
 			contactData,
-			formConfig,
+			// formConfig,
 		},
 		revalidate: 300, // In seconds
 	};

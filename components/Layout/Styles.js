@@ -115,7 +115,7 @@ export const StyledLayout = styled.main`
 	position: relative;
 	width: 100%;
 	height: 100%;
-	min-height: 800px;
+	min-height: ${({ theme }) => theme.homePageFirstSectionHeight};
 	background: ${({ theme }) => theme.white};
 `;
 
@@ -333,7 +333,7 @@ export const StyledMobileMenu = styled.div`
 	top: 0;
 	width: 100%;
 	height: 100%;
-	min-height: 800px;
+	min-height: ${({ theme }) => theme.homePageFirstSectionHeight};
 	min-width: 100%;
 	display: flex;
 	align-items: center;
@@ -461,6 +461,18 @@ export const StyledLine = styled.div`
 		display: inline-block;
 		position: absolute;
 	}
+
+	${({ homeSlider }) =>
+		homeSlider &&
+		css`
+			background: ${({ theme }) => theme.white};
+			margin: 1rem 0;
+
+			::before,
+			::after {
+				background: ${({ theme }) => theme.white};
+			}
+		`}
 `;
 
 export const StyledBurgerWrapper = styled.div`
