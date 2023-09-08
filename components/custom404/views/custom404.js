@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useInView } from 'react-hook-inview';
 
 // ASSETS
@@ -24,6 +25,7 @@ const Custom404 = () => {
 		<StyledCustomWrapper>
 			<StyledTextWrapper>
 				<StyledHeader ref={ref} visible={visible}>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid, react/no-unknown-property */}
 					<a as="h1">
 						Cześć,
 						<br />
@@ -38,16 +40,16 @@ const Custom404 = () => {
 
 				<ul>
 					<li>
-						<a href="/oferta">Oferta</a>
+						<Link href="/oferta">Oferta</Link>
 					</li>
 					<li>
-						<a href="/przestrzen-historia">Przestrzen i historia</a>
+						<Link href="/przestrzen-historia">Przestrzen i historia</Link>
 					</li>
 					<li>
-						<a href="/galeria">Galeria</a>
+						<Link href="/galeria">Galeria</Link>
 					</li>
 					<li>
-						<a href="/kontakt">Kontakt</a>
+						<Link href="/kontakt">Kontakt</Link>
 					</li>
 				</ul>
 

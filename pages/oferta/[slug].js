@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import dynamic from 'next/dynamic';
@@ -79,10 +80,11 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 }
 
 export async function getStaticPaths() {
-	const allPosts = await getAllPostsForHome();
+	// const allPosts = await getAllPostsForHome();
 
 	return {
-		paths: allPosts?.edges?.map(({ node }) => `/oferta/${node.slug}`) || [],
+		paths: [],
+		// paths: allPosts?.edges?.map(({ node }) => `/oferta/${node.slug}`) || [],
 		// fallback: true,
 		fallback: 'blocking',
 	};

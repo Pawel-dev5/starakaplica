@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import dynamic from 'next/dynamic';
 
 // API
@@ -7,6 +8,7 @@ import { getOfferHeader } from '../lib/offer';
 
 // COMPONENTS
 import { Container } from '../components/elements';
+
 const MoreStories = dynamic(() => import('../components/Offer/MoreStories'));
 const Layout = dynamic(() => import('../components/Layout/layout'));
 

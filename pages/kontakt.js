@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 // API
-import { getContactData, getConfig } from '../lib/contact';
+import { getContactData } from '../lib/contact';
 import { getPrimaryMenu, getFooter } from '../lib/nav';
 
 // COMPONENTS
