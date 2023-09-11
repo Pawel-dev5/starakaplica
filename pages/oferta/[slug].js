@@ -34,7 +34,6 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 	return (
 		<Layout
 			headerText={post?.title}
-			headerImg={post?.featuredImage?.node}
 			slug={post?.slug}
 			menuItems={menuItems?.edges}
 			footerItems={footerItems?.menuItems?.edges}
@@ -51,7 +50,6 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 							</SRLWrapper>
 						</article>
 
-						<hr />
 						{morePosts?.length > 0 && <MoreStories posts={morePosts} />}
 					</>
 				)}

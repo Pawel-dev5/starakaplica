@@ -122,7 +122,7 @@ export const StyledHistoryWrapper = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: 1px solid black;
+			border: 1px solid ${({ theme }) => theme.black};
 			border-radius: 50%;
 			margin-right: 1.5rem;
 			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {

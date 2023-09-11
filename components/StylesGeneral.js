@@ -328,7 +328,6 @@ export const StyledButton = styled.button`
 			padding: 0;
 			margin: 0;
 			margin-top: -50px;
-			margin-right: 20px;
 		`}
 
 	${({ customMargin }) =>

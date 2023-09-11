@@ -10,7 +10,7 @@ import MessengerIcon from '../items/MessengerIcon';
 import { StyledLayout, StyledLayoutHeaderText, StyledLine } from './Styles';
 import { StyledText } from '../StylesGeneral';
 
-const Layout = ({ children, slug, menuItems, footerItems, headerImg, headerText, setAsideMenu, asideMenu, seo }) => {
+const Layout = ({ children, slug, menuItems, footerItems, headerText, setAsideMenu, asideMenu, seo }) => {
 	const [scrollDir, setScrollDir] = useState('START');
 	const [footerValues, setFooterValues] = useState([]);
 
@@ -70,9 +70,14 @@ const Layout = ({ children, slug, menuItems, footerItems, headerImg, headerText,
 					<Navigation menuItems={menuItems} footerItems={footerValues} hideSubMenu={scrollDir === 'DOWN' ?? true} />
 				)}
 
-				<Navigation.Mobile menuItems={menuItems} setAsideMenu={setAsideMenu} asideMenu={asideMenu}>
+				<Navigation.Mobile
+					menuItems={menuItems}
+					footerItems={footerValues}
+					setAsideMenu={setAsideMenu}
+					asideMenu={asideMenu}
+				>
 					{headerText && (
-						<StyledLayoutHeaderText isImg={headerImg?.sourceUrl}>
+						<StyledLayoutHeaderText>
 							<StyledText h1 black>
 								{headerText}
 							</StyledText>

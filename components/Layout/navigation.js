@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 // FONTAWESOME
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
 // LOGO
 import logo from '../../public/logo.png';
@@ -30,6 +30,7 @@ import {
 	StyledBurgerWrapper,
 	StyledSubMenuWrapper,
 	StyledMobileButtonsWrapper,
+	StyledSocials,
 } from './Styles';
 
 const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
@@ -81,6 +82,7 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 const NavigationMobile = ({ menuItems, footerItems, children }) => {
 	const router = useRouter();
 	const [asideMenu, setAsideMenu] = useState(false);
+	const findSocialItemType = (values, type) => values?.find((item) => item?.label === type);
 
 	return (
 		<StyledMobileNavWrapper>
@@ -100,11 +102,30 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 				)}
 
 				<StyledMobileButtonsWrapper>
-					<Link href="https://www.facebook.com/starakaplicarestauracja" passHref target="_blank">
-						<a alt="Facebook" aria-label="Facebook">
-							<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
-						</a>
-					</Link>
+					<StyledSocials>
+						{findSocialItemType(footerItems, 'Facebook') && (
+							<Link href={findSocialItemType(footerItems, 'Facebook')?.path} passHref target="_blank">
+								<a
+									aria-label={findSocialItemType(footerItems, 'Facebook')?.label}
+									alt={findSocialItemType(footerItems, 'Facebook')?.label}
+								>
+									<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
+								</a>
+							</Link>
+						)}
+
+						{findSocialItemType(footerItems, 'Instagram') && (
+							<Link href={findSocialItemType(footerItems, 'Instagram')?.path} passHref target="_blank">
+								<a
+									aria-label={findSocialItemType(footerItems, 'Instagram')?.label}
+									alt={findSocialItemType(footerItems, 'Instagram')?.label}
+								>
+									<FontAwesomeIcon icon={faInstagramSquare} className="fa-xl" />
+								</a>
+							</Link>
+						)}
+					</StyledSocials>
+
 					<StyledBurgerWrapper asideMenu={asideMenu}>
 						<StyledButton burger type="button" name="Close" aria-label="Close" onClick={() => setAsideMenu(!asideMenu)}>
 							<Burger />
@@ -126,16 +147,6 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 							))}
 						</>
 					)}
-
-					<StyledNavWrapper submenu>
-						{footerItems && <SubMenu footerItems={footerItems} />}
-
-						<Link href="https://www.facebook.com/starakaplicarestauracja" passHref>
-							<a alt="Facebook" aria-label="Facebook">
-								<FontAwesomeIcon icon={faFacebookSquare} className="fa-xl" />
-							</a>
-						</Link>
-					</StyledNavWrapper>
 				</StyledMobileBodyWrapper>
 			</StyledMobileMenu>
 		</StyledMobileNavWrapper>

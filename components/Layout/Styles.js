@@ -49,10 +49,6 @@ export const StyledNavMenuWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-end;
 	gap: 1.6rem;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-		padding: 0 0.5rem;
-	}
 `;
 
 export const StyledNavWrapper = styled.nav`
@@ -60,7 +56,6 @@ export const StyledNavWrapper = styled.nav`
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	max-width: 1200px;
 	height: 6rem;
 	padding: ${({ theme }) => theme.containerPadding};
 
@@ -97,12 +92,10 @@ export const StyledNavWrapper = styled.nav`
 `;
 
 export const StyledSubMenuWrapper = styled.div`
-	max-width: 1110px;
 	display: flex;
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	margin: auto;
 	height: 50px;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) and (max-width: ${({ theme }) => theme.breakpoints.xl}) {
@@ -321,6 +314,7 @@ export const StyledMobileMenuWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 0 3rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		display: none;
@@ -418,12 +412,6 @@ export const StyledLayoutHeaderText = styled.div`
 	justify-content: center;
 	flex-direction: column;
 
-	${({ isImg }) =>
-		!isImg &&
-		css`
-			margin-top: 7rem;
-		`}
-
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		${({ isImg }) =>
 			!isImg &&
@@ -485,7 +473,7 @@ export const StyledBurgerWrapper = styled.div`
 	.container {
 		cursor: pointer;
 		display: flex;
-		width: 50px;
+		width: 60px;
 		height: 100px;
 	}
 	svg {
@@ -551,6 +539,7 @@ export const StyledMobileButtonsWrapper = styled.div`
 	flex-flow: row nowrap;
 	align-items: center;
 	gap: 1rem;
+	margin-right: -1.1rem;
 	a {
 		color: ${({ theme }) => theme.white};
 	}
