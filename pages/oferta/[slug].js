@@ -13,7 +13,7 @@ const Layout = dynamic(() => import('../../components/Layout/layout'));
 const MoreStories = dynamic(() => import('../../components/Offer/MoreStories'));
 const HeroPost = dynamic(() => import('../../components/Offer/HeroPost'));
 
-const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
+const Post = ({ post, posts, menuItems, footerItems }) => {
 	const router = useRouter();
 	const morePosts = posts?.edges;
 
@@ -32,7 +32,7 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 		<Layout
 			headerText={post?.title}
 			slug={post?.slug}
-			menuItems={menuItems?.edges}
+			menuItems={menuItems?.menuItems?.edges}
 			footerItems={footerItems?.menuItems?.edges}
 			seo={newSeo}
 		>

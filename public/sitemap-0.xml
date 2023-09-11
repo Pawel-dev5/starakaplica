@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://stara-kaplica.pl/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://stara-kaplica.pl/galeria/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://stara-kaplica.pl/kontakt/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://stara-kaplica.pl/oferta/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://stara-kaplica.pl/przestrzen-historia/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://stara-kaplica.pl/server-sitemap-index.xml/</loc><lastmod>2023-09-08T22:52:24.300Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/galeria/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/kontakt/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/oferta/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/przestrzen-historia/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/server-sitemap-index.xml/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/oferta/wesele/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/oferta/przyjecia-okolicznosciowe/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/oferta/konferencje-spotkania-biznesowe-szkolenia/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://stara-kaplica.pl/oferta/pokazy-targi/</loc><lastmod>2023-09-11T23:09:56.788Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
