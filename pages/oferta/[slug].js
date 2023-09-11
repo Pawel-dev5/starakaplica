@@ -3,9 +3,6 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import dynamic from 'next/dynamic';
 
-// LIGHTBOX
-import { SRLWrapper } from 'simple-react-lightbox';
-
 // STATE
 import { getPrimaryMenu, getFooter } from '../../lib/nav';
 import { getPostAndMorePosts } from '../../lib/offerSlug';
@@ -39,21 +36,8 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 			footerItems={footerItems?.menuItems?.edges}
 			seo={newSeo}
 		>
-			<div>
-				{router.isFallback ? (
-					<h2>Loading…</h2>
-				) : (
-					<>
-						<article>
-							<SRLWrapper>
-								<HeroPost {...post} />
-							</SRLWrapper>
-						</article>
-
-						{morePosts?.length > 0 && <MoreStories posts={morePosts} />}
-					</>
-				)}
-			</div>
+			<HeroPost {...post} />
+			{morePosts?.length > 0 && <MoreStories posts={morePosts} />}
 		</Layout>
 	);
 };

@@ -314,7 +314,7 @@ export const StyledMobileMenuWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 3rem;
+	padding: ${({ theme }) => theme.containerPadding};
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		display: none;
@@ -412,12 +412,13 @@ export const StyledLayoutHeaderText = styled.div`
 	justify-content: center;
 	flex-direction: column;
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		${({ isImg }) =>
-			!isImg &&
-			css`
-				margin-top: 10rem;
-			`}
+	margin-top: 10rem;
+	> div {
+		margin-bottom: 0.5rem;
+	}
+
+	* {
+		color: ${({ theme }) => theme.black};
 	}
 `;
 

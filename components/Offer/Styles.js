@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { StyledWrapper } from '../StylesGeneral';
+import styled from 'styled-components';
 
 // MORE STORIES
 export const StyledMoreStoriesWrapper = styled.section`
@@ -8,7 +7,7 @@ export const StyledMoreStoriesWrapper = styled.section`
 	display: grid;
 	gap: 3rem;
 	grid-template-columns: repeat(1, 1fr);
-	padding: 0 3rem;
+	padding: ${({ theme }) => theme.containerPadding};
 	margin-bottom: 12rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -27,64 +26,6 @@ export const StyledHeroImgWrapper = styled.div`
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		margin: 0.5rem;
 	}
-`;
-
-export const StyledHeroWrapper = styled(StyledWrapper)`
-	margin: 0;
-	text-align: left;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-	gap: 0;
-
-	a {
-		text-decoration: none;
-	}
-	${({ column }) =>
-		column &&
-		css`
-			flex-direction: column;
-		`}
-
-	> p {
-		padding: 0.5rem;
-		padding-left: 0;
-		cursor: pointer;
-	}
-
-	${({ customWidth }) =>
-		customWidth &&
-		css`
-			height: 30%;
-			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-				width: 50%;
-				height: 500px;
-			}
-		`}
-
-	${({ menu }) =>
-		menu &&
-		css`
-			height: 100%;
-			width: 100%;
-
-			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-				width: 75%;
-				height: 500px;
-				margin: auto;
-
-				div:nth-child(1) {
-					width: 60%;
-					height: 100%;
-				}
-				div:nth-child(2) {
-					width: 40%;
-					margin: initial;
-				}
-			}
-		`}
 `;
 
 export const StyledMorePostWrapper = styled.div`
@@ -108,54 +49,6 @@ export const StyledMorePostWrapper = styled.div`
 	}
 `;
 
-export const StyledSliderWrapper = styled.div`
-	height: 400px;
-	width: 100%;
-	max-width: 600px;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	.container-with-dots {
-		width: 600px;
-
-		*:not(ul) {
-			min-height: 400px;
-			button {
-				min-height: 25px !important;
-			}
-		}
-		img {
-			min-height: 400px !important;
-			object-fit: cover;
-		}
-	}
-`;
-
-export const StylesMenuWrapper = styled.div`
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: row nowrap;
-	width: 256px;
-	height: 331px;
-
-	span {
-		margin: 1rem !important;
-
-		:hover {
-			transform: scale(1.1);
-			transition: transform 0.5s;
-		}
-		img {
-			width: 256px;
-			height: 331px;
-		}
-	}
-`;
-
 export const StyledDotButton = styled.button`
 	height: 25px;
 	width: 25px;
@@ -166,12 +59,22 @@ export const StyledDotButton = styled.button`
 	max-height: 25px;
 `;
 
+export const StyledHeroContainer = styled.div`
+	padding: ${({ theme }) => theme.containerPadding};
+	margin-bottom: 8rem;
+`;
+
 export const StyledTextWrapper = styled.div`
 	width: 100%;
-	margin: 2rem;
 
-	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		width: 30%;
-		margin: 0 2rem;
+	* {
+		overflow: visible;
+	}
+	> ul {
+		margin: 1rem;
+		margin-left: 2rem;
+		> li {
+			margin: 0.5rem;
+		}
 	}
 `;

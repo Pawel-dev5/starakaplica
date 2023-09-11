@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // COMPONENTS
@@ -78,9 +79,18 @@ const Layout = ({ children, slug, menuItems, footerItems, headerText, setAsideMe
 				>
 					{headerText && (
 						<StyledLayoutHeaderText>
-							<StyledText h1 black>
-								{headerText}
-							</StyledText>
+							<div>
+								<StyledText h1 black pointer={slug}>
+									<Link href="/oferta" passHref>
+										{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+										<a>{slug && 'Oferta / '}</a>
+									</Link>
+								</StyledText>
+
+								<StyledText h1 black pointer={slug}>
+									{headerText}
+								</StyledText>
+							</div>
 
 							<StyledLine />
 						</StyledLayoutHeaderText>
