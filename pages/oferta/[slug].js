@@ -7,9 +7,9 @@ import dynamic from 'next/dynamic';
 import { SRLWrapper } from 'simple-react-lightbox';
 
 // STATE
-import { getAllPostsForHome } from '../../lib/home';
 import { getPrimaryMenu, getFooter } from '../../lib/nav';
 import { getPostAndMorePosts } from '../../lib/offerSlug';
+import { getAllOfferSlugs } from '../../lib/offer';
 
 // COMPONENTS
 const Layout = dynamic(() => import('../../components/Layout/layout'));
@@ -40,7 +40,7 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 			footerItems={footerItems?.menuItems?.edges}
 			seo={newSeo}
 		>
-			{/* <div>
+			<div>
 				{router.isFallback ? (
 					<h2>Loading…</h2>
 				) : (
@@ -55,7 +55,7 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 						{morePosts?.length > 0 && <MoreStories posts={morePosts} />}
 					</>
 				)}
-			</div> */}
+			</div>
 		</Layout>
 	);
 };
@@ -63,15 +63,15 @@ const Post = ({ post, posts, menuItems: { menuItems }, footerItems }) => {
 export default Post;
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-	// const data = await getPostAndMorePosts(params.slug, preview, previewData);
+	const data = await getPostAndMorePosts(params.slug, preview, previewData);
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
 
 	return {
 		props: {
 			preview,
-			// post: data?.post,
-			// posts: data?.posts,
+			post: data?.post,
+			posts: data?.posts,
 			menuItems,
 			footerItems,
 		},
@@ -80,12 +80,10 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 }
 
 export async function getStaticPaths() {
-	// const allPosts = await getAllPostsForHome();
+	const allSlugs = await getAllOfferSlugs();
 
 	return {
-		paths: [],
-		// paths: allPosts?.edges?.map(({ node }) => `/oferta/${node.slug}`) || [],
-		// fallback: true,
-		fallback: 'blocking',
+		paths: allSlugs?.edges?.map(({ node }) => `/oferta/${node?.slug}`) || [],
+		fallback: true,
 	};
 }

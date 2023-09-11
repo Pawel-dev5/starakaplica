@@ -2,13 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // COMPONENTS
-import { StyledText, StyledWrapper } from '../../StylesGeneral';
+import { StyledText } from '../../StylesGeneral';
 
 // STYLES
 import { StyledPostPreviewWrapper, StyledCoverImg } from './Styles';
 import { StyledMorePostWrapper } from '../Styles';
 
-const PostPreview = ({ title, featuredImage, excerpt, slug }) => (
+const PostPreview = ({ title, featuredImage, slug }) => (
 	<Link href={`/oferta/${slug}`} passHref>
 		<StyledPostPreviewWrapper>
 			{featuredImage && (
@@ -17,15 +17,11 @@ const PostPreview = ({ title, featuredImage, excerpt, slug }) => (
 				</StyledCoverImg>
 			)}
 
-			<StyledWrapper between hero column>
-				<StyledMorePostWrapper column>
-					<StyledText h1 bold black pointer>
-						{title}
-					</StyledText>
-				</StyledMorePostWrapper>
-
-				<StyledMorePostWrapper dangerouslySetInnerHTML={{ __html: excerpt }} />
-			</StyledWrapper>
+			<StyledMorePostWrapper>
+				<StyledText h2 semiBold white pointer padding="0">
+					{title}
+				</StyledText>
+			</StyledMorePostWrapper>
 		</StyledPostPreviewWrapper>
 	</Link>
 );

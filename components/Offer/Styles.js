@@ -3,38 +3,18 @@ import { StyledWrapper } from '../StylesGeneral';
 
 // MORE STORIES
 export const StyledMoreStoriesWrapper = styled.section`
-	margin: 2rem auto;
 	text-align: center;
 	width: 100%;
+	display: grid;
+	gap: 3rem;
+	grid-template-columns: repeat(1, 1fr);
+	padding: 0 3rem;
+	margin-bottom: 12rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-		> div {
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			-webkit-box-pack: center;
-			justify-content: center;
-			flex-flow: column nowrap;
-			text-align: center;
-
-			> div:nth-child(even) {
-				flex-direction: row;
-				> div {
-					margin: 1rem;
-				}
-			}
-
-			> div:nth-child(odd) {
-				flex-direction: row-reverse;
-				> div {
-					margin: 1rem;
-				}
-				> div:nth-child(2) {
-					align-items: flex-start;
-				}
-			}
-		}
-	}
+		gap: 5rem;
+		grid-template-columns: repeat(2, 1fr);
+s	}
 `;
 
 // HERO POST
@@ -107,23 +87,23 @@ export const StyledHeroWrapper = styled(StyledWrapper)`
 		`}
 `;
 
-export const StyledMorePostWrapper = styled(StyledWrapper)`
-	margin: 0;
-	align-items: flex-start;
+export const StyledMorePostWrapper = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
 	text-align: left;
-	justify-content: space-between;
+	padding: 1rem;
+	padding-left: 2rem;
+	justify-content: flex-start;
 	width: 100%;
+	min-height: 4rem;
 	cursor: pointer;
+	background: ${({ theme }) => theme.black};
 
-	${({ column }) =>
-		column &&
-		css`
-			flex-direction: column;
-		`}
-
-	> p {
-		padding: 0.5rem;
-		padding-left: 0;
+	> h2 {
+		font-size: 1.75rem;
 		cursor: pointer;
 	}
 `;

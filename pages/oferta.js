@@ -3,44 +3,35 @@ import dynamic from 'next/dynamic';
 
 // API
 import { getPrimaryMenu, getFooter } from '../lib/nav';
-import { getAllPostsForHome } from '../lib/home';
-import { getOfferHeader } from '../lib/offer';
-
-// COMPONENTS
-import { Container } from '../components/elements';
+import { getOfferData, getAllOfferSlugs } from '../lib/offer';
 
 const MoreStories = dynamic(() => import('../components/Offer/MoreStories'));
 const Layout = dynamic(() => import('../components/Layout/layout'));
 
-const Blog = ({ allPosts, menuItems: { menuItems }, footerItems, offerHeader }) => {
-	const morePosts = allPosts?.edges ?? [];
-
-	return (
-		<Layout
-			menuItems={menuItems?.edges}
-			footerItems={footerItems?.menuItems?.edges}
-			headerImg={offerHeader?.featuredImage?.node}
-			headerText={offerHeader?.title}
-			subHeaderText={offerHeader?.oferta?.subheader}
-			seo={offerHeader?.seo}
-		>
-			{/* <Container>{morePosts && <MoreStories posts={morePosts} />}</Container> */}
-		</Layout>
-	);
-};
+const Blog = ({ allSlugs, menuItems: { menuItems }, footerItems, offerData }) => (
+	<Layout
+		menuItems={menuItems?.edges}
+		footerItems={footerItems?.menuItems?.edges}
+		headerText={offerData?.title}
+		subHeaderText={offerData?.description}
+		seo={offerData?.seo}
+	>
+		<MoreStories posts={allSlugs?.edges ?? []} />
+	</Layout>
+);
 
 export async function getStaticProps() {
 	const menuItems = (await getPrimaryMenu()) ?? null;
 	const footerItems = (await getFooter()) ?? null;
-	// const allPosts = (await getAllPostsForHome()) ?? null;
-	// const offerHeader = (await getOfferHeader()) ?? null;
+	const allSlugs = (await getAllOfferSlugs()) ?? null;
+	const offerData = (await getOfferData()) ?? null;
 
 	return {
 		props: {
-			// allPosts,
 			menuItems,
 			footerItems,
-			// offerHeader
+			allSlugs,
+			offerData,
 		},
 		revalidate: 300, // In seconds
 	};

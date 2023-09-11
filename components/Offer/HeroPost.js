@@ -29,6 +29,7 @@ const HeroPost = ({ sliderOffer, excerpt, offerMenu }) => {
 
 	return (
 		<>
+			<h1>HERO POST</h1>
 			<StyledHeroWrapper>
 				{sliderGallery && (
 					<StyledSliderWrapper>
