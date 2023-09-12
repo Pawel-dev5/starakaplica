@@ -86,8 +86,9 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 									key={item?.id}
 									style={{ position: 'relative', overflow: 'visible' }}
 									onMouseEnter={() => setShowDropdown(true)}
+									onMouseLeave={() => setShowDropdown(false)}
 								>
-									<div>
+									<div style={{ padding: '1rem 0' }}>
 										<Link href={item?.path} passHref>
 											<StyledNavText active={router?.pathname === item?.path ?? true}>{item?.label}</StyledNavText>
 										</Link>
@@ -101,7 +102,7 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 									</div>
 
 									{showDropdown && item?.childItems?.edges?.length > 0 && (
-										<StyledDropdown onMouseLeave={() => setShowDropdown(false)}>
+										<StyledDropdown>
 											<div>
 												{item?.childItems?.edges?.map((child) => (
 													<Link href={child?.node?.path} key={child?.node?.path} passHref>

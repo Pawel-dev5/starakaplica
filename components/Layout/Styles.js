@@ -17,6 +17,7 @@ export const StyledNavText = styled.button`
 	white-space: nowrap;
 	background: transparent;
 	border: none;
+	cursor: pointer;
 
 	:hover,
 	:active,
@@ -63,9 +64,9 @@ export const StyledNavDropdownText = styled.a`
 export const StyledDropdown = styled.div`
 	text-align: left;
 	position: absolute;
-	bottom: -130px;
+	bottom: -110px;
 	left: -15px;
-	padding-top: 2rem;
+	padding-top: 0rem;
 	background: transparent;
 
 	> div {
