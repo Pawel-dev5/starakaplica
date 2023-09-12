@@ -10,10 +10,13 @@ export const StyledMobileBodyWrapper = styled.div`
 `;
 
 // NAVIGATION
-export const StyledNavText = styled.a`
+export const StyledNavText = styled.button`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
 	font-size: 0.9rem;
+	white-space: nowrap;
+	background: transparent;
+	border: none;
 
 	:hover,
 	:active,
@@ -44,11 +47,53 @@ export const StyledNavText = styled.a`
 		`}
 `;
 
+export const StyledNavDropdownText = styled.a`
+	text-decoration: none;
+	color: ${({ theme }) => theme.white};
+	font-size: 0.9rem;
+	white-space: nowrap;
+
+	:hover,
+	:active,
+	:focus {
+		text-decoration: underline;
+	}
+`;
+
+export const StyledDropdown = styled.div`
+	text-align: left;
+	position: absolute;
+	bottom: -130px;
+	left: -15px;
+	padding-top: 2rem;
+	background: transparent;
+
+	> div {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 1rem;
+		background: ${({ theme }) => theme.black};
+	}
+`;
+export const StyledMobileDropdown = styled.div`
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 1rem;
+	gap: 0.5rem;
+	text-align: center;
+`;
+
 export const StyledNavMenuWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	gap: 1.6rem;
+	overflow: visible;
 `;
 
 export const StyledNavWrapper = styled.nav`
@@ -58,6 +103,7 @@ export const StyledNavWrapper = styled.nav`
 	width: 100%;
 	height: 6rem;
 	padding: ${({ theme }) => theme.containerPadding};
+	overflow: visible;
 
 	${({ submenu }) =>
 		submenu &&
@@ -287,6 +333,7 @@ export const StyledMenuWrapper = styled.div`
 		position: fixed;
 		width: 100%;
 		z-index: 999;
+		overflow: visible;
 		top: 0;
 		background-color: ${({ theme }) => theme.transparentize({ amount: 0.3, color: theme.black })};
 		display: flex;

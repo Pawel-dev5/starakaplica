@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-is-valid, react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 // FONTAWESOME
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 // LOGO
 import logo from '../../public/logo.png';
@@ -31,10 +32,20 @@ import {
 	StyledSubMenuWrapper,
 	StyledMobileButtonsWrapper,
 	StyledSocials,
+	StyledDropdown,
+	StyledMobileDropdown,
+	StyledNavDropdownText,
 } from './Styles';
 
 const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 	const router = useRouter();
+
+	const menuArray = [];
+	if (menuItems) {
+		menuItems?.forEach((item) => {
+			if (!item?.node?.parentId) menuArray.push(item?.node);
+		});
+	}
 
 	return (
 		<StyledMenuWrapper>
@@ -65,13 +76,46 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 					</StyledNavMenuWrapper>
 				)}
 
-				{menuItems && (
+				{menuArray && (
 					<StyledNavMenuWrapper>
-						{menuItems?.map((item) => (
-							<Link href={item?.node?.path} passHref key={item?.node?.id}>
-								<StyledNavText active={router?.pathname === item?.node?.path ?? true}>{item?.node?.label}</StyledNavText>
-							</Link>
-						))}
+						{menuArray?.map((item) => {
+							const [showDropdown, setShowDropdown] = useState(false);
+
+							return (
+								<div
+									key={item?.id}
+									style={{ position: 'relative', overflow: 'visible' }}
+									onMouseEnter={() => setShowDropdown(true)}
+								>
+									<div>
+										<Link href={item?.path} passHref>
+											<StyledNavText active={router?.pathname === item?.path ?? true}>{item?.label}</StyledNavText>
+										</Link>
+
+										{item?.childItems?.edges?.length > 0 && (
+											<FontAwesomeIcon
+												icon={showDropdown ? faChevronUp : faChevronDown}
+												style={{ fontSize: '1rem', marginLeft: '0.5rem' }}
+											/>
+										)}
+									</div>
+
+									{showDropdown && item?.childItems?.edges?.length > 0 && (
+										<StyledDropdown onMouseLeave={() => setShowDropdown(false)}>
+											<div>
+												{item?.childItems?.edges?.map((child) => (
+													<Link href={child?.node?.path} key={child?.node?.path} passHref>
+														<StyledNavDropdownText active={router?.pathname === item?.path ?? true}>
+															{child?.node?.label}
+														</StyledNavDropdownText>
+													</Link>
+												))}
+											</div>
+										</StyledDropdown>
+									)}
+								</div>
+							);
+						})}
 					</StyledNavMenuWrapper>
 				)}
 			</StyledNavWrapper>
@@ -83,6 +127,13 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 	const router = useRouter();
 	const [asideMenu, setAsideMenu] = useState(false);
 	const findSocialItemType = (values, type) => values?.find((item) => item?.label === type);
+
+	const menuArray = [];
+	if (menuItems) {
+		menuItems?.forEach((item) => {
+			if (!item?.node?.parentId) menuArray.push(item.node);
+		});
+	}
 
 	return (
 		<StyledMobileNavWrapper>
@@ -134,17 +185,59 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 				</StyledMobileButtonsWrapper>
 			</StyledMobileMenuWrapper>
 
-			<StyledMobileMenu asideMenu={asideMenu} onClick={() => setAsideMenu(!asideMenu)}>
+			<StyledMobileMenu asideMenu={asideMenu}>
 				<StyledMobileBodyWrapper>
-					{menuItems && (
+					{menuArray && (
 						<>
-							{menuItems?.map((item) => (
-								<Link href={item?.node?.path} passHref key={item?.node?.id}>
-									<StyledNavText customPadding="0.5rem" active={router?.pathname === item?.node?.path ?? true}>
-										{item?.node?.label}
-									</StyledNavText>
-								</Link>
-							))}
+							{menuArray?.map((item) => {
+								const [showDropdown, setShowDropdown] = useState(false);
+
+								return (
+									<div key={item?.label}>
+										<div>
+											<Link href={item?.path} passHref>
+												<StyledNavText
+													type="button"
+													onClick={() => setAsideMenu(!asideMenu)}
+													active={router?.pathname === item?.path ?? true}
+												>
+													{item?.label}
+												</StyledNavText>
+											</Link>
+
+											{item?.childItems?.edges?.length > 0 && (
+												<button
+													type="button"
+													onClick={() => setShowDropdown(!showDropdown)}
+													style={{ background: 'transparent', border: 'none' }}
+												>
+													<FontAwesomeIcon
+														icon={showDropdown ? faChevronUp : faChevronDown}
+														style={{ fontSize: '1rem', marginLeft: '0.5rem', color: 'white' }}
+													/>
+												</button>
+											)}
+										</div>
+
+										{showDropdown && item?.childItems?.edges?.length > 0 && (
+											<StyledMobileDropdown
+												onMouseLeave={() => {
+													setShowDropdown(false);
+													setAsideMenu(!asideMenu);
+												}}
+											>
+												{item?.childItems?.edges?.map((child) => (
+													<Link href={child?.node?.path} key={child?.node?.path} passHref>
+														<StyledNavDropdownText active={router?.pathname === item?.path ?? true}>
+															{child?.node?.label}
+														</StyledNavDropdownText>
+													</Link>
+												))}
+											</StyledMobileDropdown>
+										)}
+									</div>
+								);
+							})}
 						</>
 					)}
 				</StyledMobileBodyWrapper>
