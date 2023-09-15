@@ -35,6 +35,7 @@ import {
 	StyledDropdown,
 	StyledMobileDropdown,
 	StyledNavDropdownText,
+	StyledNavParentWrapper,
 } from './Styles';
 
 const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
@@ -195,11 +196,11 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 
 								return (
 									<div key={item?.label}>
-										<div>
+										<StyledNavParentWrapper>
 											<Link href={item?.path} passHref>
 												<StyledNavText
 													type="button"
-													onClick={() => setAsideMenu(!asideMenu)}
+													onClick={() => setAsideMenu(false)}
 													active={router?.pathname === item?.path ?? true}
 												>
 													{item?.label}
@@ -209,7 +210,9 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 											{item?.childItems?.edges?.length > 0 && (
 												<button
 													type="button"
-													onClick={() => setShowDropdown(!showDropdown)}
+													onClick={() => {
+														setShowDropdown(!showDropdown);
+													}}
 													style={{ background: 'transparent', border: 'none' }}
 												>
 													<FontAwesomeIcon
@@ -218,18 +221,24 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 													/>
 												</button>
 											)}
-										</div>
+										</StyledNavParentWrapper>
 
 										{showDropdown && item?.childItems?.edges?.length > 0 && (
 											<StyledMobileDropdown
 												onMouseLeave={() => {
 													setShowDropdown(false);
-													setAsideMenu(!asideMenu);
+													setAsideMenu(false);
 												}}
 											>
 												{item?.childItems?.edges?.map((child) => (
 													<Link href={child?.node?.path} key={child?.node?.path} passHref>
-														<StyledNavDropdownText active={router?.pathname === item?.path ?? true}>
+														<StyledNavDropdownText
+															onClick={() => {
+																setShowDropdown(false);
+																setAsideMenu(false);
+															}}
+															active={router?.pathname === item?.path ?? true}
+														>
 															{child?.node?.label}
 														</StyledNavDropdownText>
 													</Link>

@@ -48,17 +48,27 @@ export const StyledNavText = styled.button`
 		`}
 `;
 
-export const StyledNavDropdownText = styled.a`
+export const StyledNavDropdownText = styled.button`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
 	font-size: 0.9rem;
 	white-space: nowrap;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 
 	:hover,
 	:active,
 	:focus {
 		text-decoration: underline;
 	}
+`;
+
+export const StyledNavParentWrapper = styled.a`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5rem;
 `;
 
 export const StyledDropdown = styled.div`
