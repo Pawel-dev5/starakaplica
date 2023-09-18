@@ -64,7 +64,7 @@ export const StyledNavText = styled.button`
 		`}
 `;
 
-export const StyledNavTextMobile = styled.button`
+export const StyledNavTextMobile = styled.a`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
 	font-size: 1rem;
@@ -145,7 +145,7 @@ export const StyledNavDropdownText = styled.button`
 	}
 `;
 
-export const StyledNavParentWrapper = styled.a`
+export const StyledNavParentWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;

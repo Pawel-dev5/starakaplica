@@ -205,7 +205,6 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 										<StyledNavParentWrapper>
 											<Link href={item?.path} passHref>
 												<StyledNavTextMobile
-													type="button"
 													onClick={() => setAsideMenu(false)}
 													active={router?.pathname === item?.path ?? true}
 												>
@@ -216,9 +215,7 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 											{item?.childItems?.edges?.length > 0 && (
 												<button
 													type="button"
-													onClick={() => {
-														setShowDropdown(!showDropdown);
-													}}
+													onClick={() => setShowDropdown(!showDropdown)}
 													style={{ background: 'transparent', border: 'none' }}
 												>
 													<FontAwesomeIcon
