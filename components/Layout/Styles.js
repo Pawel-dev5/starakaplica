@@ -474,7 +474,7 @@ export const StyledMobileMenuWrapper = styled.div`
 `;
 
 export const StyledMobileMenu = styled.div`
-	position: absolute;
+	position: fixed;
 	z-index: 1020;
 	width: 15rem;
 	height: 100%;
