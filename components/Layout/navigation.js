@@ -201,7 +201,7 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 								const [showDropdown, setShowDropdown] = useState(false);
 
 								return (
-									<div key={item?.label}>
+									<div key={item?.label} style={{ width: '15rem' }}>
 										<StyledNavParentWrapper>
 											<Link href={item?.path} passHref>
 												<StyledNavTextMobile
@@ -211,7 +211,7 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 													{item?.label}
 												</StyledNavTextMobile>
 											</Link>
-											{/* 
+
 											{item?.childItems?.edges?.length > 0 && (
 												<button
 													type="button"
@@ -223,7 +223,7 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 														style={{ fontSize: '1rem', marginLeft: '0.5rem', color: 'white' }}
 													/>
 												</button>
-											)} */}
+											)}
 										</StyledNavParentWrapper>
 
 										{showDropdown && item?.childItems?.edges?.length > 0 && (

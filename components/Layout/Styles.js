@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const StyledMobileBodyWrapper = styled.div`
-	position: fixed;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
