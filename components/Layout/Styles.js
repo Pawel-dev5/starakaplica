@@ -155,7 +155,7 @@ export const StyledNavParentWrapper = styled.a`
 export const StyledDropdown = styled.div`
 	text-align: left;
 	position: absolute;
-	bottom: -130px;
+	bottom: -160px;
 	left: -15px;
 	padding-top: 0rem;
 	background: transparent;
