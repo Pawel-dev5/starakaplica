@@ -88,7 +88,7 @@ const KontaktItems = ({ footerItems, color }) => {
 						<StyledIcon icon={faMapMarkerAlt} className="fa-xl" />
 
 						<StyledAdressWrapper>
-							<a href={`mailto:${findItemType(footerItems, 'http://adres')?.label}`}>
+							<a href="https://maps.app.goo.gl/z5hFUHvNM12XSndH7" target="_blank" rel="noreferrer">
 								<StyledText
 									footer={color === 'black' ?? true}
 									h4={color === 'white' ?? true}
@@ -148,7 +148,7 @@ const ContactPageItems = ({ contaktitems, color }) => {
 						<StyledAdressWrapper>
 							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
 								<Link href={`mailto:${findItemType(contaktitems, 'adresemail')}`} passHref target="_blank">
-									<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
+									<a aria-label={findItemType(contaktitems, 'adresemail')} alt={findItemType(contaktitems, 'adresemail')}>
 										{findItemType(contaktitems, 'adresemail')}
 									</a>
 								</Link>
@@ -157,15 +157,15 @@ const ContactPageItems = ({ contaktitems, color }) => {
 					</StyledContaktItemsWrapper>
 
 					<StyledContaktItemsWrapper>
-						<StyledIcon icon={faMapMarkerAlt} style={{ fontSize: '2rem' }} />
+						<a href="https://maps.app.goo.gl/z5hFUHvNM12XSndH7" target="_blank" rel="noreferrer">
+							<StyledIcon icon={faMapMarkerAlt} style={{ fontSize: '2rem' }} />
+						</a>
 
 						<StyledAdressWrapper>
 							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
-								<Link href={findItemType(contaktitems, 'facebook')} passHref target="_blank">
-									<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
-										{findItemType(contaktitems, 'adres')}
-									</a>
-								</Link>
+								<a href="https://maps.app.goo.gl/z5hFUHvNM12XSndH7" target="_blank" rel="noreferrer">
+									{findItemType(contaktitems, 'adres')}
+								</a>
 							</StyledText>
 						</StyledAdressWrapper>
 					</StyledContaktItemsWrapper>
