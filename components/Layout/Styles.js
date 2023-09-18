@@ -7,6 +7,7 @@ export const StyledMobileBodyWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 0.6rem;
+	width: 15rem;
 `;
 
 // NAVIGATION
@@ -150,6 +151,7 @@ export const StyledNavParentWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 0.5rem;
+	width: 15rem;
 `;
 
 export const StyledDropdown = styled.div`
