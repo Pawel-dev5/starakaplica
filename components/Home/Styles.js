@@ -50,6 +50,14 @@ export const StyledFirstSectionWrapper = styled.div`
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		margin-top: 40px;
 	}
+
+	.react-multiple-carousel__arrow--left {
+		left: calc(4% + -15px);
+	}
+
+	.react-multiple-carousel__arrow--right {
+		right: calc(4% + -15px);
+	}
 `;
 
 export const StyledOverlayText = styled.div`
@@ -57,22 +65,22 @@ export const StyledOverlayText = styled.div`
 	z-index: 1000000;
 	display: flex;
 	flex-direction: column;
-	max-width: 70%;
+	max-width: 80%;
 `;
 
 export const StyledContentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: ${({ theme }) => theme.containerPadding};
-	margin-top: 8rem;
-	gap: 8rem;
+	margin-top: 5rem;
+	gap: 6rem;
 
 	> div {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		width: 100%;
-		gap: 4rem;
+		gap: 2rem;
 
 		@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 			gap: 3rem;
@@ -87,7 +95,7 @@ export const StyledContentContainer = styled.div`
 		align-items: center;
 		flex-direction: column;
 		width: 100%;
-		gap: 4rem;
+		gap: 2rem;
 
 		@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 			gap: 3rem;
@@ -134,7 +142,7 @@ export const StyledSliderBlockItemsContainer = styled.div`
 	}
 	> div:nth-child(even) {
 		padding: 3rem;
-		background: ${({ theme }) => theme.black};
+		background: ${({ theme }) => theme.primary};
 	}
 	> div:nth-child(odd) {
 		padding: 3rem;

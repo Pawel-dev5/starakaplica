@@ -11,6 +11,9 @@ import { StyledText } from '../StylesGeneral';
 
 const StyledIcon = styled(FontAwesomeIcon)`
 	font-size: 1.3rem;
+	color: #ba8a02;
+	cursor: pointer;
+	min-width: 2rem;
 `;
 
 const KontaktItems = ({ footerItems, color }) => {
@@ -38,14 +41,17 @@ const KontaktItems = ({ footerItems, color }) => {
 								Telefon
 							</StyledText>
 
-							<StyledText
-								footer={color === 'black' ?? true}
-								h4={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								textAlign="left"
-							>
-								<a href={`tel:${findItemType(footerItems, 'phone')?.label}`}>{findItemType(footerItems, 'phone')?.label}</a>
-							</StyledText>
+							<a href={`tel:${findItemType(footerItems, 'phone')?.label}`}>
+								<StyledText
+									footer={color === 'black' ?? true}
+									h4={color === 'white' ?? true}
+									h3={color === 'black' ?? true}
+									textAlign="left"
+									primaryHover
+								>
+									{findItemType(footerItems, 'phone')?.label}
+								</StyledText>
+							</a>
 						</StyledAdressWrapper>
 					</StyledFooterAdres>
 
@@ -63,17 +69,18 @@ const KontaktItems = ({ footerItems, color }) => {
 								Adres e-mail
 							</StyledText>
 
-							<StyledText
-								footer={color === 'black' ?? true}
-								h4={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								textAlign="left"
-								width="100%"
-							>
-								<a href={`mailto:${findItemType(footerItems, 'email')?.label}`}>
+							<a href={`mailto:${findItemType(footerItems, 'email')?.label}`}>
+								<StyledText
+									footer={color === 'black' ?? true}
+									h4={color === 'white' ?? true}
+									h3={color === 'black' ?? true}
+									textAlign="left"
+									width="100%"
+									primaryHover
+								>
 									{findItemType(footerItems, 'email')?.label}
-								</a>
-							</StyledText>
+								</StyledText>
+							</a>
 						</StyledAdressWrapper>
 					</StyledFooterAdres>
 
@@ -81,14 +88,17 @@ const KontaktItems = ({ footerItems, color }) => {
 						<StyledIcon icon={faMapMarkerAlt} className="fa-xl" />
 
 						<StyledAdressWrapper>
-							<StyledText
-								footer={color === 'black' ?? true}
-								h4={color === 'white' ?? true}
-								h3={color === 'black' ?? true}
-								textAlign="left"
-							>
-								{findItemType(footerItems, 'http://adres')?.label}
-							</StyledText>
+							<a href={`mailto:${findItemType(footerItems, 'http://adres')?.label}`}>
+								<StyledText
+									footer={color === 'black' ?? true}
+									h4={color === 'white' ?? true}
+									h3={color === 'black' ?? true}
+									textAlign="left"
+									primaryHover
+								>
+									{findItemType(footerItems, 'http://adres')?.label}
+								</StyledText>
+							</a>
 						</StyledAdressWrapper>
 					</StyledFooterAdres>
 				</>
@@ -115,21 +125,33 @@ const ContactPageItems = ({ contaktitems, color }) => {
 			{contaktitems && (
 				<>
 					<StyledContaktItemsWrapper>
-						<StyledIcon icon={faPhoneVolume} style={{ fontSize: '2rem' }} />
+						<Link href={`tel:${findItemType(contaktitems, 'telefon')}`} passHref target="_blank">
+							<StyledIcon icon={faPhoneVolume} style={{ fontSize: '2rem' }} />
+						</Link>
 
 						<StyledAdressWrapper>
 							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
-								<a href={`tel:${findItemType(contaktitems, 'telefon')}`}>{findItemType(contaktitems, 'telefon')}</a>
+								<Link href={`tel:${findItemType(contaktitems, 'telefon')}`} passHref target="_blank">
+									<a aria-label={findItemType(contaktitems, 'telefon')} alt={findItemType(contaktitems, 'telefon')}>
+										{findItemType(contaktitems, 'telefon')}
+									</a>
+								</Link>
 							</StyledText>
 						</StyledAdressWrapper>
 					</StyledContaktItemsWrapper>
 
 					<StyledContaktItemsWrapper>
-						<StyledIcon icon={faEnvelopeOpen} style={{ fontSize: '2rem' }} />
+						<Link href={`mailto:${findItemType(contaktitems, 'adresemail')}`} passHref target="_blank">
+							<StyledIcon icon={faEnvelopeOpen} style={{ fontSize: '2rem' }} />
+						</Link>
 
 						<StyledAdressWrapper>
-							<StyledText footer={color === 'black' ?? true} h2 textAlign="left" width="100%">
-								<a href={`mailto:${findItemType(contaktitems, 'adresemail')}`}>{findItemType(contaktitems, 'adresemail')}</a>
+							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
+								<Link href={`mailto:${findItemType(contaktitems, 'adresemail')}`} passHref target="_blank">
+									<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
+										{findItemType(contaktitems, 'adresemail')}
+									</a>
+								</Link>
 							</StyledText>
 						</StyledAdressWrapper>
 					</StyledContaktItemsWrapper>
@@ -139,7 +161,11 @@ const ContactPageItems = ({ contaktitems, color }) => {
 
 						<StyledAdressWrapper>
 							<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
-								{findItemType(contaktitems, 'adres')}
+								<Link href={findItemType(contaktitems, 'facebook')} passHref target="_blank">
+									<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
+										{findItemType(contaktitems, 'adres')}
+									</a>
+								</Link>
 							</StyledText>
 						</StyledAdressWrapper>
 					</StyledContaktItemsWrapper>
@@ -154,7 +180,11 @@ const ContactPageItems = ({ contaktitems, color }) => {
 						)}
 
 						<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
-							Facebook
+							<Link href={findItemType(contaktitems, 'facebook')} passHref target="_blank">
+								<a aria-label={findItemType(contaktitems, 'facebook')} alt={findItemType(contaktitems, 'facebook')}>
+									Facebook
+								</a>
+							</Link>
 						</StyledText>
 					</StyledContaktItemsWrapper>
 
@@ -168,7 +198,11 @@ const ContactPageItems = ({ contaktitems, color }) => {
 						)}
 
 						<StyledText footer={color === 'black' ?? true} h2 textAlign="left">
-							Instagram
+							<Link href={findItemType(contaktitems, 'instagram')} passHref target="_blank">
+								<a aria-label={findItemType(contaktitems, 'instagram')} alt={findItemType(contaktitems, 'instagram')}>
+									Instagram
+								</a>
+							</Link>
 						</StyledText>
 					</StyledContaktItemsWrapper>
 				</>

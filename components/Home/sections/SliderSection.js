@@ -43,7 +43,7 @@ const SliderSection = ({ slider, sliderBlocks }) => {
 						showDots={false}
 						arrows
 						swipeable
-						autoPlay
+						// autoPlay
 						autoPlaySpeed={5000}
 						transitionDuration={500}
 					>
@@ -56,7 +56,7 @@ const SliderSection = ({ slider, sliderBlocks }) => {
 										{title}
 									</StyledText>
 
-									<StyledText white h2 padding="1rem">
+									<StyledText white h2 paddingesktop="0.5rem 0">
 										{description}
 									</StyledText>
 								</StyledOverlayText>

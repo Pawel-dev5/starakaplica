@@ -89,7 +89,7 @@ const Footer = ({ footerItems, menuItems }) => {
 						<StyledMenuItemsContainer>
 							{menuItems?.map((item) => (
 								<a key={item?.node?.id} href={item?.node?.path}>
-									<StyledText left h3 white>
+									<StyledText left h3 white primaryHover>
 										{item?.node?.label}
 									</StyledText>
 								</a>

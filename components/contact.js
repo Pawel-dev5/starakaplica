@@ -17,6 +17,7 @@ const initialState = {
 	phone: 'Telefon (wymagane)',
 	message: 'Wiadomość (wymagane)',
 };
+
 const Contact = ({ userId, serviceId, tamplateId, contaktitems, map }) => {
 	const [formData, setFormData] = useState(initialState);
 
@@ -107,7 +108,7 @@ const Contact = ({ userId, serviceId, tamplateId, contaktitems, map }) => {
 					</StyledForm>
 				</StyledFormWrapper>
 
-				<KontaktItems.KontaktPage contaktitems={contaktitems} color="black" />
+				<KontaktItems.KontaktPage contaktitems={contaktitems} color="primary" />
 			</StyledFormContainer>
 
 			<StyledMapWrapper>

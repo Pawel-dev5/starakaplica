@@ -22,9 +22,11 @@ import {
 	StyledNavWrapper,
 	StyledNavMenuWrapper,
 	StyledNavText,
+	StyledNavTextMobile,
 	StyledMenuWrapper,
 	StyledMobileMenuWrapper,
 	StyledMobileMenu,
+	StyledMobileMenuOverlay,
 	StyledMobileNavWrapper,
 	StyledLayout,
 	StyledMobileBodyWrapper,
@@ -56,7 +58,7 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 
 					<Link href="/kontakt" passHref>
 						<a>
-							<StyledText h5 white bold hover>
+							<StyledText h5 white bold subNavHover>
 								WYŚLIJ ZAPYTANIE
 							</StyledText>
 						</a>
@@ -91,13 +93,15 @@ const Navigation = ({ menuItems, footerItems, hideSubMenu }) => {
 								>
 									<div style={{ padding: '1rem 0' }}>
 										<Link href={item?.path} passHref>
-											<StyledNavText active={router?.pathname === item?.path ?? true}>{item?.label}</StyledNavText>
+											<StyledNavText showDropdown={showDropdown} active={router?.pathname === item?.path ?? true}>
+												{item?.label}
+											</StyledNavText>
 										</Link>
 
 										{item?.childItems?.edges?.length > 0 && (
 											<FontAwesomeIcon
 												icon={showDropdown ? faChevronUp : faChevronDown}
-												style={{ fontSize: '1rem', marginLeft: '0.5rem' }}
+												style={{ fontSize: '1rem', marginLeft: '0.5rem', color: showDropdown ? '#BA8A02' : '#ffffff' }}
 											/>
 										)}
 									</div>
@@ -187,6 +191,8 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 				</StyledMobileButtonsWrapper>
 			</StyledMobileMenuWrapper>
 
+			<StyledMobileMenuOverlay asideMenu={asideMenu} />
+
 			<StyledMobileMenu asideMenu={asideMenu}>
 				<StyledMobileBodyWrapper>
 					{menuArray && (
@@ -198,13 +204,13 @@ const NavigationMobile = ({ menuItems, footerItems, children }) => {
 									<div key={item?.label}>
 										<StyledNavParentWrapper>
 											<Link href={item?.path} passHref>
-												<StyledNavText
+												<StyledNavTextMobile
 													type="button"
 													onClick={() => setAsideMenu(false)}
 													active={router?.pathname === item?.path ?? true}
 												>
 													{item?.label}
-												</StyledNavText>
+												</StyledNavTextMobile>
 											</Link>
 
 											{item?.childItems?.edges?.length > 0 && (

@@ -13,25 +13,99 @@ export const StyledMobileBodyWrapper = styled.div`
 export const StyledNavText = styled.button`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
-	font-size: 0.9rem;
+	font-size: 1rem;
 	white-space: nowrap;
-	background: transparent;
 	border: none;
 	cursor: pointer;
+	background: linear-gradient(to right, ${({ theme }) => theme.primary}, ${({ theme }) => theme.primary});
+	background-position: 0 100%;
+	background-size: 0 2px;
+	background-repeat: no-repeat;
+	transition: background-size 1000ms;
+	padding-bottom: 0.25rem;
 
 	:hover,
 	:active,
 	:focus {
-		text-decoration: underline;
-		color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
+		background-size: 100% 2px;
+		color: ${({ theme }) => theme.primary};
 	}
+
+	${({ showDropdown }) =>
+		showDropdown &&
+		css`
+			background-size: 100% 2px;
+			color: ${({ theme }) => theme.primary};
+		`}
 
 	${({ active }) =>
 		active &&
 		css`
-			font-weight: ${({ theme }) => theme.semiBold};
-			text-decoration: underline;
-			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
+			background-size: 100% 2px;
+			color: ${({ theme }) => theme.white};
+
+			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+				font-weight: ${({ theme }) => theme.semiBold};
+				color: ${({ theme }) => theme.primary};
+			}
+		`}
+
+	${({ submenu }) =>
+		submenu &&
+		css`
+			padding: 0 0.8rem;
+			font-size: 0.85rem;
+		`}
+  
+  ${({ customPadding }) =>
+		customPadding &&
+		css`
+			padding: ${customPadding};
+		`}
+`;
+
+export const StyledNavTextMobile = styled.button`
+	text-decoration: none;
+	color: ${({ theme }) => theme.white};
+	font-size: 1rem;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	background: linear-gradient(
+		to right,
+		${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })},
+		${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })}
+	);
+	background-position: 0 100%;
+	background-size: 0 2px;
+	background-repeat: no-repeat;
+	transition: background-size 1000ms;
+	padding-bottom: 0.25rem;
+
+	:hover,
+	:active,
+	:focus {
+		background-size: 100% 2px;
+		color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })};
+	}
+
+	${({ showDropdown }) =>
+		showDropdown &&
+		css`
+			background-size: 100% 2px;
+			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })};
+		`}
+
+	${({ active }) =>
+		active &&
+		css`
+			background-size: 100% 2px;
+			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })};
+
+			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+				font-weight: ${({ theme }) => theme.semiBold};
+				color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.primary })};
+			}
 		`}
 
 	${({ submenu }) =>
@@ -51,16 +125,23 @@ export const StyledNavText = styled.button`
 export const StyledNavDropdownText = styled.button`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
-	font-size: 0.9rem;
+	font-size: 1rem;
 	white-space: nowrap;
 	background: transparent;
 	border: none;
 	cursor: pointer;
+	background: linear-gradient(to right, ${({ theme }) => theme.primary}, ${({ theme }) => theme.primary});
+	background-position: 0 100%;
+	background-size: 0 2px;
+	background-repeat: no-repeat;
+	transition: background-size 1000ms;
+	padding-bottom: 0.25rem;
 
 	:hover,
 	:active,
 	:focus {
-		text-decoration: underline;
+		background-size: 100% 2px;
+		color: ${({ theme }) => theme.primary};
 	}
 `;
 
@@ -74,7 +155,7 @@ export const StyledNavParentWrapper = styled.a`
 export const StyledDropdown = styled.div`
 	text-align: left;
 	position: absolute;
-	bottom: -110px;
+	bottom: -130px;
 	left: -15px;
 	padding-top: 0rem;
 	background: transparent;
@@ -86,7 +167,7 @@ export const StyledDropdown = styled.div`
 		justify-content: center;
 		gap: 0.5rem;
 		padding: 1rem;
-		background: ${({ theme }) => theme.black};
+		background: ${({ theme }) => theme.baseGray};
 	}
 `;
 export const StyledMobileDropdown = styled.div`
@@ -121,7 +202,7 @@ export const StyledNavWrapper = styled.nav`
 		css`
 			height: 39%;
 			max-width: none;
-			background: ${({ theme }) => theme.black};
+			background: ${({ theme }) => theme.primary};
 
 			@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
 				padding: 6rem 0;
@@ -259,6 +340,7 @@ export const StyledCTAButton = styled.div`
 	:hover {
 		border: 1px solid ${({ theme }) => theme.white};
 		background-color: ${({ theme }) => theme.black};
+
 		a {
 			color: ${({ theme }) => theme.white};
 		}
@@ -271,7 +353,7 @@ export const StyledCTAWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: ${({ theme }) => theme.black};
+	background-color: ${({ theme }) => theme.primary};
 	position: absolute;
 	top: -14rem;
 	flex-direction: column;
@@ -292,6 +374,12 @@ export const StyledSocials = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	gap: 1rem;
+
+	> a > svg {
+		:hover {
+			color: ${({ theme }) => theme.primary};
+		}
+	}
 `;
 
 export const StyledMenuItemsContainer = styled.div`
@@ -300,6 +388,11 @@ export const StyledMenuItemsContainer = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 	gap: 0.3rem;
+	> * {
+		:hover: {
+			color: ${({ theme }) => theme.primary};
+		}
+	}
 `;
 
 export const StyledCTAText = styled.h1`
@@ -318,7 +411,6 @@ export const StyledMenuContainer = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 	gap: 1rem;
-	margin-top: 1rem;
 	min-width: 20%;
 `;
 
@@ -343,10 +435,11 @@ export const StyledMenuWrapper = styled.div`
 		position: -webkit-fixed; /* Safari */
 		position: fixed;
 		width: 100%;
-		z-index: 999;
+		z-index: 1021;
 		overflow: visible;
 		top: 0;
 		background-color: ${({ theme }) => theme.transparentize({ amount: 0.3, color: theme.black })};
+		/* background-color: ${({ theme }) => theme.primary}; */
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -366,9 +459,9 @@ export const StyledMobileMenuWrapper = styled.div`
 	position: -webkit-fixed; /* Safari */
 	position: fixed;
 	width: 100%;
-	z-index: 999;
+	z-index: 1021;
 	top: 0;
-	background-color: ${({ theme }) => theme.black};
+	background-color: ${({ theme }) => theme.primary};
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -381,7 +474,41 @@ export const StyledMobileMenuWrapper = styled.div`
 
 export const StyledMobileMenu = styled.div`
 	position: absolute;
-	z-index: 998;
+	z-index: 1020;
+	width: 50%;
+	height: 100%;
+	min-height: ${({ theme }) => theme.homePageFirstSectionHeight};
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	margin-top: 90px;
+	padding-top: 100px;
+	background-color: ${({ theme }) => theme.primary};
+
+	top: 0;
+	right: -100%;
+	transition: 1s;
+
+	${({ asideMenu }) =>
+		asideMenu &&
+		css`
+			right: 0;
+			transition: 1s;
+
+			@media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+				right: 0;
+			}
+		`}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+		display: none;
+	}
+`;
+
+export const StyledMobileMenuOverlay = styled.div`
+	position: absolute;
+	z-index: 1019;
 	top: 0;
 	width: 100%;
 	height: 100%;
@@ -394,23 +521,18 @@ export const StyledMobileMenu = styled.div`
 	margin-top: 90px;
 	padding-top: 100px;
 	background-color: ${({ theme }) => theme.black};
-
-	right: -480px;
+	opacity: 0.5;
+	left: -100%;
 	transition: 1s;
-
-	@media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-		right: -800px;
-		transition: 1s;
-	}
 
 	${({ asideMenu }) =>
 		asideMenu &&
 		css`
-			right: 0;
+			left: 0;
 			transition: 1s;
 
 			@media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-				right: 0;
+				left: 0;
 			}
 		`}
 
@@ -476,14 +598,14 @@ export const StyledLayoutHeaderText = styled.div`
 	}
 
 	* {
-		color: ${({ theme }) => theme.black};
+		color: ${({ theme }) => theme.primary};
 	}
 `;
 
 export const StyledLine = styled.div`
 	width: 46px;
 	height: 3px;
-	background-color: ${({ theme }) => theme.black};
+	background-color: ${({ theme }) => theme.primary};
 	display: inline-block;
 	position: relative;
 	top: 4px;
@@ -494,7 +616,7 @@ export const StyledLine = styled.div`
 		width: 3px;
 		height: 3px;
 		right: -5px;
-		background-color: #000;
+		background-color: ${({ theme }) => theme.primary};
 		display: inline-block;
 		position: absolute;
 	}
@@ -504,7 +626,7 @@ export const StyledLine = styled.div`
 		width: 3px;
 		height: 3px;
 		right: -10px;
-		background-color: #000;
+		background-color: ${({ theme }) => theme.primary};
 		display: inline-block;
 		position: absolute;
 	}

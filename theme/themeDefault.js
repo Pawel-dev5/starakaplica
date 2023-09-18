@@ -2,6 +2,7 @@ import { transparentize, darken } from 'polished';
 
 const ThemeDefault = () => {
 	const theme = {
+		primary: '#BA8A02',
 		white: '#fff',
 		black: 'hsl(0, 0%, 0%)',
 		red: '#ff0000',

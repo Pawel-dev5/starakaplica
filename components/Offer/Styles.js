@@ -41,7 +41,7 @@ export const StyledMorePostWrapper = styled.div`
 	width: 100%;
 	min-height: 4rem;
 	cursor: pointer;
-	background: ${({ theme }) => theme.black};
+	background: ${({ theme }) => theme.primary};
 
 	> h2 {
 		font-size: 1.75rem;

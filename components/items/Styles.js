@@ -7,32 +7,15 @@ export const StyledFooterAdres = styled.div`
 	gap: 1rem;
 	width: 100%;
 	min-height: 3rem;
-
-	svg {
-		cursor: pointer;
-		color: ${({ theme }) => theme.white};
-		:hover {
-			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
-		}
-	}
 `;
 
 export const StyledContaktItemsWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	gap: 2rem;
+	gap: 1rem;
 	width: 100%;
 	min-height: 3rem;
-
-	svg {
-		min-width: 2rem;
-		cursor: pointer;
-		color: ${({ theme }) => theme.white};
-		:hover {
-			color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
-		}
-	}
 `;
 
 export const StyledSubMenuWrapper = styled.div`
@@ -72,6 +55,20 @@ export const StyledContact = styled.div`
 				color: ${({ theme }) => theme.black};
 			}
 		`}
+		
+	${({ color }) =>
+		color === 'primary' &&
+		css`
+			* {
+				> svg {
+					min-width: 2.5rem;
+
+					* {
+						color: ${({ theme }) => theme.primary};
+					}
+				}
+			}
+		`}
 `;
 
 export const StyledAdressWrapper = styled.div`
@@ -81,7 +78,6 @@ export const StyledAdressWrapper = styled.div`
 	width: 100%;
 
 	span {
-		width: 90%;
 		line-height: 1.5rem;
 	}
 `;

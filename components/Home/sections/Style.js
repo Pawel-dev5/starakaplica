@@ -13,8 +13,9 @@ export const StyledSummary = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 0 4rem;
+	padding: 0 3rem;
 	margin: 4rem 0 10rem 0;
+	width: 100%;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		margin: 0 0 5rem 0;
@@ -25,5 +26,5 @@ export const StyledSummary = styled.div`
 export const StyledSummaryLine = styled.div`
 	width: 15rem;
 	margin: 4rem 0;
-	border: 1px solid ${({ theme }) => theme.black};
+	border: 1px solid ${({ theme }) => theme.primary};
 `;

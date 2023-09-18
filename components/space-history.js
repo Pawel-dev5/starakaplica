@@ -2,7 +2,7 @@
 import { StyledPageContainer, StyledHistoryWrapper } from './Styles';
 
 const SpaceHistory = ({ historyData }) => (
-	<StyledPageContainer column start>
+	<StyledPageContainer>
 		{historyData && <StyledHistoryWrapper dangerouslySetInnerHTML={{ __html: historyData?.content }} />}
 	</StyledPageContainer>
 );

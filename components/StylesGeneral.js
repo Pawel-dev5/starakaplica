@@ -178,6 +178,28 @@ export const StyledText = styled.span`
 				transition: transform 0.5s ease 0s;
 			}
 		`}
+		
+   
+ 
+ ${({ primaryHover }) =>
+		primaryHover &&
+		css`
+			:hover {
+				color: ${({ theme }) => theme.primary};
+			}
+		`}
+		
+
+		
+    ${({ subNavHover }) =>
+		subNavHover &&
+		css`
+			:hover {
+				cursor: pointer;
+				text-decoration: underline;
+				color: ${({ theme }) => theme.darken({ amount: 0.2, color: theme.white })};
+			}
+		`}
 `;
 
 export const StyledWrapper = styled.div`
@@ -313,13 +335,13 @@ export const StyledLogoWrapper = styled.div`
 export const StyledButton = styled.button`
 	cursor: pointer;
 	padding: 0.6rem 1.25rem;
-	background-color: ${({ theme }) => theme.black};
+	background-color: ${({ theme }) => theme.primary};
 	color: ${({ theme }) => theme.white};
 	border: none;
 	margin: 2rem;
 
 	:hover {
-		background-color: ${({ theme }) => theme.transparentize({ amount: 0.2, color: theme.black })};
+		background-color: ${({ theme }) => theme.transparentize({ amount: 0.2, color: theme.primary })};
 	}
 
 	${({ burger }) =>
@@ -364,7 +386,7 @@ export const StyledBlogTitle = styled.span`
 export const StyledSubMenu = styled.a`
 	text-decoration: none;
 	color: ${({ theme }) => theme.white};
-	font-size: 0.85rem;
+	font-size: 0.9rem;
 	line-height: 1.5rem;
 
 	:hover {

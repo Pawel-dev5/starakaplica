@@ -18,8 +18,7 @@ export const StyledForm = styled.form`
 export const StyledInput = styled.input`
 	width: 100%;
 	max-width: 100%;
-	color: #626262;
-	background-color: rgba(235, 235, 235, 1);
+	background-color: transparent;
 	padding: 10px;
 	outline: none;
 	margin: 0;
@@ -27,13 +26,14 @@ export const StyledInput = styled.input`
 	display: block;
 	font-size: 14px;
 	border-width: 1px;
-	border-color: #ebebeb;
+	border-color: ${({ theme }) => theme.primary};
 	border-style: solid;
 	border-radius: 0;
 	box-sizing: border-box;
 	-webkit-appearance: none;
-
 	box-shadow: inset 0 0 2px 2px rgb(0 0 0 / 2%);
+
+	color: ${({ theme }) => theme.black};
 `;
 
 export const StyledTextarea = styled.textarea`
@@ -52,12 +52,10 @@ export const StyledTextarea = styled.textarea`
 	border-radius: 0;
 	box-sizing: border-box;
 	-webkit-appearance: none;
-
 	box-shadow: inset 0 0 2px 2px rgb(0 0 0 / 2%);
-
-	color: #626262;
-	background-color: rgba(235, 235, 235, 1);
-	border-color: #ebebeb;
+	background-color: transparent;
+	border-color: ${({ theme }) => theme.primary};
+	color: ${({ theme }) => theme.black};
 `;
 
 export const StyledFormContainer = styled.div`
@@ -66,12 +64,14 @@ export const StyledFormContainer = styled.div`
 	justify-content: space-around;
 	flex-flow: column nowrap;
 	text-align: center;
-	gap: 6rem;
+	gap: 3rem;
 	color: ${({ theme }) => theme.black};
 	width: 100%;
 	padding: ${({ theme }) => theme.containerPadding};
+	margin-bottom: 5rem;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+		gap: 6rem;
 		flex-flow: row nowrap;
 		> div {
 			width: 50%;
@@ -100,7 +100,7 @@ export const StyledHistoryWrapper = styled.div`
 				height: 70%;
 				left: 40px;
 				top: 113px;
-				background-color: #000;
+				background-color: ${({ theme }) => theme.primary};
 				display: inline-block;
 				position: absolute;
 			}
@@ -122,7 +122,7 @@ export const StyledHistoryWrapper = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: 1px solid ${({ theme }) => theme.black};
+			border: 1px solid ${({ theme }) => theme.primary};
 			border-radius: 50%;
 			margin-right: 1.5rem;
 			@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -133,6 +133,7 @@ export const StyledHistoryWrapper = styled.div`
 				width: 100%;
 				font-weight: 600;
 				text-align: center;
+				color: ${({ theme }) => theme.primary};
 			}
 		}
 		> div:nth-child(2) {
@@ -198,6 +199,7 @@ export const StylesGalleryGrid = styled.div`
 		font-size: 1.75rem;
 		font-weight: 500;
 		margin-bottom: 3rem;
+		color: ${({ theme }) => theme.black};
 	}
 `;
 
