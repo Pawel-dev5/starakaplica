@@ -475,7 +475,7 @@ export const StyledMobileMenuWrapper = styled.div`
 export const StyledMobileMenu = styled.div`
 	position: absolute;
 	z-index: 1020;
-	width: 50%;
+	width: 15rem;
 	height: 100%;
 	min-height: ${({ theme }) => theme.homePageFirstSectionHeight};
 	display: flex;
